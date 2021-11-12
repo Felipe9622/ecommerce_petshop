@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Cadastro de usuário{% endblock  %}
+
+{% block content %}
+<section id="content">
+   <div class="content-wrap">
+      <div class="container clearfix">
+         <div class="tabs mx-auto mb-0 clearfix ui-tabs ui-corner-all ui-widget ui-widget-content" id="tab-login-register" style="max-width: 500px;">
+            <div class="tab-container">
+               <div class="tab-content ui-tabs-panel ui-corner-bottom ui-widget-content" id="tab-login" aria-labelledby="ui-id-1" role="tabpanel" aria-hidden="false">
+                  <div class="card mb-0">
+                     <div class="card-body" style="padding: 40px;">
+                        <form id="login-form" name="login-form" class="mb-0" action="#" method="post">
+                           <h3>Login </h3>
+                           <div class="row">                          
+                              <div class="col-12 form-group">
+                                 {% csrf_token %}
+                                 {{form|crispy}}
+                                 <button class="button button-3d button-black m-0" id="login-form-submit" name="login-form-submit" value="login">Login</button>
+                                 <a href="#" class="float-end">Forgot Password?</a>
+                              </div>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+{% endblock %}

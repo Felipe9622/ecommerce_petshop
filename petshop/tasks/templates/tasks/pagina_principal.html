@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Pagina principal{% endblock  %}
+
+{% block content %}
+
+{% if messages %}
+<ul class="messages">
+   {% for message in messages %}
+   <li {% if message.tags %}class="alert alert-{{message.tags}}"{% endif %}>{{message}}</li>
+   {% endfor %}
+</ul>
+{% endif %}
+<header>
+   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+         <div class="carousel-item active" style="background-image: url('static/images/pet2.jpg')">
+            <div class="carousel-caption">
+               <h1 style="color: black; font-size: 3.75rem;">Pet Mania</h1>
+               <p class="text-black-60 mb-0">Serviço veterinario e cuidado higienico para seu pet</p>
+            </div>
+         </div>
+      </div>
+   </div>
+</header>
+<!-- Page Content -->
+<section class="py-5">
+   <div class="container">
+      <h1 class="fw-light">Venha conhecer nosso serviço</h1>
+      <p class="lead">Só quem é apaixonado por animais sabe: a relação de amor e cumplicidade que temos com nossos bichinhos de estimação
+         é um vínculo único! Por essa razão, não medimos esforços para oferecer o que há de melhor para trazer ainda mais alegria e qualidade de vida. </a>!
+      </p>
+   </div>
+</section>
+
+{% endblock %}
