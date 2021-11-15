@@ -48,6 +48,7 @@
                         </svg>
                         Agendamento
                      </a>
+                     
                   </li>
                   {% else %}
                   <li>
@@ -58,15 +59,16 @@
                         Pagina Principal
                      </a>
                   </li>
+                  {% endif %}
                   <li>
                      <a href="#" class="nav-link text-white">
                         <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-                           <use xlink:href="#grid"></use>
+                           <use xlink:href="#speedometer2"></use>
                         </svg>
-                        Products
+                        Produtos
                      </a>
+                     
                   </li>
-                  {% endif %}
                   <li>
                      <a href="#" class="nav-link text-white">
                         <svg class="bi d-block mx-auto mb-1" width="24" height="24">
@@ -74,9 +76,8 @@
                         </svg>
                         Sobre Nós
                      </a>
+                     
                   </li>
-               
-
                </ul>
                <div class="text-end">
                   {% if user.is_authenticated %}
@@ -98,13 +99,7 @@
       </section>
       <!-- Footer Scripts-->
    </body>
-   <!-- Footer -->
 
-   <!-- footer end -->
-   </div>
-   <!-- #wrapper end -->
-   <!-- Go To Top -->
-   <div id="gotoTop" class="icon-angle-up"></div>
    <!-- JavaScripts begin-->
    <script src="{% static "js/plugins.min.js" %}"></script>
    <script src="{% static "js/cheatsheet.js" %}"></script>
