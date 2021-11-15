@@ -1,13 +1,10 @@
 
 from django.shortcuts import render, redirect
-
 from rest_framework import generics
-
 from tasks.serializer import TodoSerializers
 from .models import Task
 from .forms import AddData
 from django.contrib import messages
-
 from django.contrib.auth.decorators import login_required
 
 
@@ -41,10 +38,10 @@ def Usuario(request):
 
 class ListAndCreate(generics.ListCreateAPIView):
     queryset = Task.objects.all()
-    Serializer_class = TodoSerializers
+    serializer_class = TodoSerializers
 
 class DetailAndDelete(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
-    Serializer_class = TodoSerializers
+    serializer_class = TodoSerializers
 
 

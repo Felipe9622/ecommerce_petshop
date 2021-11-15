@@ -1,11 +1,9 @@
 from django.db import models
 
-
 STATUS = (
     ('doing', 'Doing'),
     ('done', 'Done'),
 )
-
 
 class Task(models.Model):
     name = models.CharField(max_length=100, verbose_name="Nome")
