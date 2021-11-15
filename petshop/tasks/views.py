@@ -27,6 +27,8 @@ def Cadastro(request):
     else:
         form = AddData()
         return render(request, 'tasks/cadastro.html', {'form' : form })
+
+        
 @login_required
 def Login(request):
     return render(request, 'tasks/login.html')
