@@ -1,5 +1,7 @@
+from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
-
+from rest_framework import generics
+from rest_framework.serializers import Serializer
 from tasks.serializer import TodoSerializers
 from .models import Task
 from .forms import AddData
@@ -37,36 +39,12 @@ def Login(request):
 def Usuario(request):
     return render(request, 'tasks/tela_usuario.html')
 
+class ListAndCreate(generics.ListCreateAPIView):
+    queryset = Task.objects.all()
+    Serializer_class = TodoSerializers
 
-@api_view(['GET', 'POST'])
-def Petshop_list(request):
-    if request.method == 'GET':
-        todo = Task.objects.all()
-        Serializer = TodoSerializers(todo, many=True)
-        return Response(Serializer.data)
-    elif request.method == 'POST':
-        Serializer = TodoSerializers(data=request.data)
-        if Serializer.is_valid():
-            Serializer.save()
-            return Response(Serializer.data, status=status.HTTP_201_CREATED)
-        return Response(Serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class DetailAndDelete(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Task.objects.all()
+    Serializer_class = TodoSerializers
 
 
-@api_view(['GET', 'PUT', 'DELETE'])
-def Petshop_change_and_delete(request, pk):
-    try:
-        todo = Task.objects.get(id=pk)
-    except Task.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-
-    if request.method == 'GET':
-        serializer = TodoSerializers(todo)
-        return Response(serializer.data)
-    elif request.method == 'PUT':
-        serializer = TodoSerializers (todo, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(status=status.HTTP_400_BAD_REQUEST)
-    elif request.method == 'DELETE':
-        todo.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
