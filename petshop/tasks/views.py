@@ -1,15 +1,15 @@
-from django.db.models.query import QuerySet
+
 from django.shortcuts import render, redirect
+
 from rest_framework import generics
-from rest_framework.serializers import Serializer
+
 from tasks.serializer import TodoSerializers
 from .models import Task
 from .forms import AddData
 from django.contrib import messages
+
 from django.contrib.auth.decorators import login_required
-from rest_framework import status
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+
 
 
 def Pagina(request):
