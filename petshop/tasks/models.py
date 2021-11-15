@@ -13,14 +13,31 @@ TYPE = (
 
 
 class Task(models.Model):
-    name = models.CharField(max_length=100, verbose_name="Nome")
-    phone = models.CharField(max_length=11, verbose_name='Telefone', default=False)
-    email = models.EmailField(blank=True, null=True,
-                              verbose_name='E-mail', default=False)
+    name = models.CharField(
+        max_length=100,
+        verbose_name="Nome"
+    )
+    phone = models.CharField(
+        max_length=11, 
+        verbose_name='Telefone', 
+        default=False
+    )
+    email = models.EmailField(
+        blank=True, 
+        null=True,
+        verbose_name='E-mail', 
+        default=False
+    )
+
     animal_race = models.CharField(
     max_length=50,
-    SPECIES=TYPE,
+    choices=TYPE,
     verbose_name='Tipo de animal',
+    )
+
+    problem = models.CharField(
+        max_length=100, 
+        verbose_name="sintoma do animal"
     )
 
     done = models.CharField(

@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
+   <!--head begin-->
    <head>
       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
       <meta name="author" content="SemiColonWeb" />
@@ -21,26 +22,19 @@
       <link rel="stylesheet" href="{% static 'css/magnific-popup.css' type="text/css" %}">
 
    </head>
+   <!--head end-->
    <!--header begin-->
    <header>
       <div class="px-1 py-2 bg-dark text-white">
          <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-               <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+               <a href="#" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
                   <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
                      <img src="https://img.icons8.com/external-photo3ideastudio-lineal-color-photo3ideastudio/64/000000/external-pet-shop-pet-shop-photo3ideastudio-lineal-color-photo3ideastudio.png"/>
                   </svg>
                </a>
                <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
-                  {% if user.is_authenticated %}
-                  <li>
-                     <a href="/" class="nav-link text-secondary">
-                        <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-                           <use xlink:href="#home"></use>
-                        </svg>
-                        Pagina Principal
-                     </a>
-                  </li>
+                  {% if user.is_authenticated %}<!--pode ver sendo somente tendo feito login-->
                   <li>
                      <a href="#" class="nav-link text-white">
                         <svg class="bi d-block mx-auto mb-1" width="24" height="24">
@@ -80,9 +74,9 @@
                   </li>
                </ul>
                <div class="text-end">
-                  {% if user.is_authenticated %}
+                  {% if user.is_authenticated %}<!--pode ver sendo somente tendo feito login-->
                   <button  type="button" class="btn btn-outline-light me-2"><a href ="/accounts/logout">Logout</a></button>
-                  {% else %}
+                  {% else %}<!--aparece somente se não efetuou o login-->
                   <button type="button" class="btn btn-warning"><a href ="/accounts/register">Novo Usuario</a></button>
                   <button  type="button" class="btn btn-outline-light me-2"><a href ="/accounts/login">Login</a></button>
                   {% endif %}
@@ -92,13 +86,14 @@
       </div>
    </header>
    <!--header end-->
+   <!--body begin-->
    <body >
       <section >
          {%block content%}
          {% endblock %}
       </section>
-      <!-- Footer Scripts-->
    </body>
+   <!--body end-->
 
    <!-- JavaScripts begin-->
    <script src="{% static "js/plugins.min.js" %}"></script>
