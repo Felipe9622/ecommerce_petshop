@@ -21,6 +21,7 @@ def Cadastro(request):
         if form.is_valid():
             task = form.save(commit=False)
             task.done = 'doing'
+            task.user = request.user
             task.save()
             messages.info(request, 'cadastro feito com sucesso')
             return redirect('/')
@@ -37,6 +38,7 @@ def Login(request):
 @login_required
 def Usuario(request):
     return render(request, 'tasks/tela_usuario.html')
+
 
 class ListAndCreate(generics.ListCreateAPIView):
     queryset = Task.objects.all()
