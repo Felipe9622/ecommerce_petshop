@@ -40,6 +40,11 @@ def Usuario(request):
     return render(request, 'tasks/tela_usuario.html')
 
 
+
+def Sobre(request):
+    return render(request, 'about/sobre_nos.html')
+
+
 class ListAndCreate(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TodoSerializers
