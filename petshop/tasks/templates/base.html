@@ -74,10 +74,11 @@
                </ul>
                <div class="text-end">
                   {% if user.is_authenticated %}<!--pode ver sendo somente tendo feito login-->
-                  <button  type="button" class="btn btn-outline-light me-2"><a href ="/accounts/logout">Logout</a></button>
+                  <a href ="/accounts/logout" class="button button-3d button-rounded button-black">Logout</a>
                   {% else %}<!--aparece somente se não efetuou o login-->
-                  <button type="button" class="btn btn-warning"><a href ="/accounts/register">Novo Usuario</a></button>
-                  <button  type="button" class="btn btn-outline-light me-2"><a href ="/accounts/login">Login</a></button>
+                  <a href ="/accounts/register" class="button button-3d button-rounded button-yellow button-light">Novo Usuario</a>
+                  <a href ="/accounts/login" class="button button-3d button-rounded button-blue">Login</a>
+
                   {% endif %}
                </div>
             </div>

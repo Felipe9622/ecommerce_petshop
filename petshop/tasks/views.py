@@ -24,7 +24,7 @@ def Cadastro(request):
             task.user = request.user
             task.save()
             messages.info(request, 'cadastro feito com sucesso')
-            return redirect('/')
+            return redirect('/tela_usuario.html/')
     else:
         form = AddData()
         return render(request, 'tasks/cadastro.html', {'form' : form })

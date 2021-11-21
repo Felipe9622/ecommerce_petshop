@@ -10,6 +10,10 @@ TYPE = (
     ('gato' , 'Gato'),
     ('cachorro' , 'Cachorro'),
     ('passaro' , 'Passaro'),
+    ('hamster', 'Hamster'),
+    ('peixe', 'Peixe'),
+    ('coelho', 'Coelho'),
+    ('porquinho_da_índia', 'Porquinho da índia'),
 )
 
 
@@ -41,7 +45,10 @@ class Task(models.Model):
         verbose_name="sintoma do animal"
     )
 
-    appointment_date = models.DateField('data', null=True, blank=True)
+    appointment_date = models.DateField(
+        verbose_name="data de agendamento", 
+
+    )
 
     done = models.CharField(
         max_length=15,

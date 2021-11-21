@@ -18,22 +18,22 @@
         <section class="py-5">
             <div class="container my-5">
                 <div class="row justify-content-center">
-                    <div class="col-lg-3">
-                        <h2>Agendamentos.</h2>
+                    <div class="col-lg-6">
+                        <h2>Agendamentos Cadastrados.</h2>
                     </div>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>First Name</th>
-                                <th>First Name1</th>
+                                <th>Status</th>
+                                <th>Data Agendada</th>
 
                             </tr>
                         </thead>
                         {% for task in tasks%}
                         <tbody>
                             <tr>
-                                <td>{{task.name}}</td>
                                 <td>{{task.done}}</td>
+                                <td>{{task.appointment_date}}</td>
                             </tr>
                         </tbody>
                         {% endfor %}
@@ -53,7 +53,7 @@
                     <div class="col-lg-6">
                         <h2>Conheça nosso serviço veterinario.</h2>
                         <p class="lead">Nosso serviço conta com os melhores profissionais na area.</p>
-                        <a href="#" class="button button-border button-circle button-dark">Agende uma consulta</a>
+                        <a href="cadastro/" class="button button-border button-circle button-dark">Agende uma consulta</a>
                     </div>
                 </div>
             </div>
