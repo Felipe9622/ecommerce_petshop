@@ -31,7 +31,7 @@ class Task(models.Model):
     )
 
     animal_race = models.CharField(
-    max_length=50,
+    max_length=100,
     choices=TYPE,
     verbose_name='Tipo de animal',
     )
@@ -41,7 +41,7 @@ class Task(models.Model):
         verbose_name="sintoma do animal"
     )
 
-    date = models.DateTimeField(
+    date = models.DateField(
         verbose_name="data e hora do agendamento"
     )
 
