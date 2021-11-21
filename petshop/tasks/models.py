@@ -2,8 +2,8 @@ from django.db import models
 from django.contrib.auth import get_user_model
 
 STATUS = (
-    ('doing', 'Doing'),
-    ('done', 'Done'),
+    ('pendente', 'Pendente'),
+    ('finalizado', 'Finalizado'),
 )
 
 TYPE = (
@@ -39,6 +39,10 @@ class Task(models.Model):
     problem = models.CharField(
         max_length=100, 
         verbose_name="sintoma do animal"
+    )
+
+    date = models.DateTimeField(
+        verbose_name="data e hora do agendamento"
     )
 
     done = models.CharField(

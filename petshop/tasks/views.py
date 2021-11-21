@@ -20,7 +20,7 @@ def Cadastro(request):
 
         if form.is_valid():
             task = form.save(commit=False)
-            task.done = 'doing'
+            task.done = 'pendente'
             task.user = request.user
             task.save()
             messages.info(request, 'cadastro feito com sucesso')
@@ -37,7 +37,8 @@ def Login(request):
 
 @login_required
 def Usuario(request):
-    return render(request, 'tasks/tela_usuario.html')
+    tasks = Task.objects.all()
+    return render(request, 'tasks/tela_usuario.html', {'tasks':tasks})
 
 
 
