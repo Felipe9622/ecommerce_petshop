@@ -40,6 +40,23 @@
                     </table>
                 </div>
             </div>
+    <div class="pagination">
+        <span class="step-links">
+            {% if tasks_order.has_previous %}
+                <a href="?page={{ tasks_order.previous_page_number }}"><i class="fas fa-arrow-left"></i></a>
+            {% endif %}
+            
+            {% if tasks_order.paginator.num_pages %}
+            <span class="current">
+                {{ tasks_order.number }} de {{ tasks_order.paginator.num_pages }}
+            </span>
+            {% endif %}
+        
+            {% if tasks_order.has_next %}
+                <a href="?page={{ tasks_order.next_page_number }}"><i class="fas fa-arrow-right"></i></a>
+            {% endif %}
+        </span>
+    </div>
         </section>
         <!-- Image element - set the background image for the header in the line below-->
         <div class="py-5 bg-image-full" style="background-image: url('https://images.pexels.com/photos/374825/pexels-photo-374825.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')">

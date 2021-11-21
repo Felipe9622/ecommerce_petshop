@@ -1,11 +1,12 @@
 
+from django.core import paginator
 from django.shortcuts import render, redirect
 from rest_framework import generics
 from tasks.serializer import TodoSerializers
 from .models import Task
 from .forms import AddData
-from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 
 
@@ -23,7 +24,6 @@ def Cadastro(request):
             task.done = 'pendente'
             task.user = request.user
             task.save()
-            messages.info(request, 'cadastro feito com sucesso')
             return redirect('/')
     else:
         form = AddData()
@@ -37,6 +37,11 @@ def Login(request):
 
 @login_required
 def Usuario(request):
+    tasks_list = Task.objects.all().order_by('-created_at')
+    paginator = Paginator(tasks_list,3)
+    page = request.GET.get('page')
+    tasks_order = paginator
+    tasks_order = paginator.get_page(page)
     tasks = Task.objects.all()
     return render(request, 'tasks/tela_usuario.html', {'tasks':tasks})
 
