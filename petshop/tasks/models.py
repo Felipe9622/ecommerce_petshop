@@ -41,9 +41,7 @@ class Task(models.Model):
         verbose_name="sintoma do animal"
     )
 
-    date = models.DateField(
-        verbose_name="data e hora do agendamento"
-    )
+    appointment_date = models.DateField('data', null=True, blank=True)
 
     done = models.CharField(
         max_length=15,
