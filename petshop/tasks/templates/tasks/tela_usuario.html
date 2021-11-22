@@ -10,7 +10,7 @@
         <header class="py-5 bg-image-full" style="background-image: url('https://images.pexels.com/photos/3628100/pexels-photo-3628100.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')">
             <div class="text-center my-5">
                 <img class="img-fluid rounded-circle mb-4" src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg" alt="..." />
-                <h1 class="text-white fs-3 fw-bolder">Bem-Vindo Felipe</h1>
+                <h1 class="text-white fs-3 fw-bolder">Bem-Vindo </h1>
             </div>
             
         </header>
@@ -24,32 +24,46 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
+                                <th></th>
                                 <th>Status</th>
                                 <th>Paciente</th>
                                 <th>Data Agendada</th>
 
                             </tr>
                         </thead>
-                        {% for task in tasks1%}
+                        {% for task in table%}
                         <tbody>
                             <tr>
+                                <td>{{task.id}}</td>
                                 <td>{{task.done}}</td>
-                                <td>{{task.animal_race}}</td>
+                                <td>{{task.user}}</td>
                                 <td>{{task.appointment_date}}</td>
                             </tr>
                         </tbody>
                         {% endfor %}
                     </table>
                     <ul class="pagination">
-                    {% if tasks.has_previous %}
-						<li class="page-item"><a class="page-link" href="?page={{ tasks.previous_page_number }}" aria-label="Previous"> <span aria-hidden="true">«</span></a></li>
-                    {% endif %}
-						<li class="page-item">
-                            {{ tasks.number }} de {{ tasks.paginator.num_pages }}
-                        </li>
-                    {% if tasks.has_next %}
-							  <li class="page-item"><a class="page-link" href="?page={{ tasks.next_page_number }}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                    {% endif %}          
+                        {% if tasks.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ tasks.previous_page_number }}" aria-label="Previous"> 
+                                    <span aria-hidden="true">
+                                    Anterior
+                                    </span>
+                                </a>
+                            </li>
+                        {% endif %}
+                            <li class="page-item">
+                                {{ tasks.number }} de {{ tasks.paginator.num_pages }}
+                            </li>
+                        {% if tasks.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ tasks.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">
+                                    proximo
+                                    </span>
+                                </a>
+                            </li>
+                        {% endif %}          
 					</ul>
                 </div>
             </div>

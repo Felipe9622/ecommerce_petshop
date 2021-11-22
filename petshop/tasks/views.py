@@ -25,7 +25,7 @@ def Cadastro(request):
             task.done = 'pendente'
             task.user = request.user
             task.save()
-        return redirect('sobre_nos/')
+            return redirect('')
     else:
         form = AddData()
         return render(request, 'tasks/cadastro.html', {'form' : form })
@@ -39,13 +39,14 @@ def Login(request):
 @login_required
 def Usuario(request):
     tasks_list = Task.objects.all().order_by('-created_at')
-
-    paginator = Paginator(tasks_list,1)
+    
+    paginator = Paginator(tasks_list, 3)
+    
     page = request.GET.get('page')
     tasks = paginator.get_page(page)
-
-    tasks1 = Task.objects.all()
-    return render(request, 'tasks/tela_usuario.html', {'tasks1':tasks1})
+    table = Task.objects.all()
+    return render(request, 'tasks/tela_usuario.html', {'tasks': tasks, 'table': table})
+    
 
 
 

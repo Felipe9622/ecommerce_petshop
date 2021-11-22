@@ -40,7 +40,7 @@ class Task(models.Model):
     verbose_name='Tipo de animal',
     )
 
-    problem = models.CharField(
+    problem = models.TextField(
         max_length=100, 
         verbose_name="sintoma do animal"
     )
