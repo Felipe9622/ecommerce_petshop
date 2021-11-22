@@ -25,7 +25,7 @@ def Cadastro(request):
             task.done = 'pendente'
             task.user = request.user
             task.save()
-            return redirect('')
+            return redirect('cadastro/')
     else:
         form = AddData()
         return render(request, 'tasks/cadastro.html', {'form' : form })
