@@ -15,7 +15,6 @@ def Pagina(request):
     return render(request, 'tasks/pagina_principal.html')
 
 
-@login_required
 def Sucesso(request):
     return render(request, 'tasks/sucesso.html')
 
