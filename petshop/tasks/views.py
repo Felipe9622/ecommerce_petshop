@@ -16,6 +16,12 @@ def Pagina(request):
 
 
 @login_required
+def Sucesso(request):
+    return render(request, 'tasks/sucesso.html')
+
+
+
+@login_required
 def Cadastro(request):
     if request.method == 'POST':
         form = AddData(request.POST)
@@ -25,7 +31,8 @@ def Cadastro(request):
             task.done = 'pendente'
             task.user = request.user
             task.save()
-            return redirect("tasks/sucesso.html")
+            
+        return render(request, 'tasks/sucesso.html')
     else:
         form = AddData()
         return render(request, 'tasks/cadastro.html', {'form' : form })
