@@ -47,6 +47,7 @@ class Task(models.Model):
 
     appointment_date = models.DateField(
         verbose_name="data de agendamento", 
+        placeholder="Digite o nome da tarefa para buscar...",
 
     )
 
