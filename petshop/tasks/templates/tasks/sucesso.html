@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}cadastro feito com sucesso{% endblock  %}
+
+{% block content %}
+
+{% if messages %}
+<ul class="messages">
+   {% for message in messages %}
+   <li {% if message.tags %}class="alert alert-{{message.tags}}"{% endif %}>{{message}}</li>
+   {% endfor %}
+</ul>
+{% endif %}
+<div class="py-5 bg-image-full" style="background-image: url('https://images.pexels.com/photos/8434677/pexels-photo-8434677.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')">
+    <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
+    <div style="height: 20rem"></div>
+    <div class="container clearfix">
+        <h1 style="margin-top: -271px;color: aliceblue;">Sobre Nós</h1>
+	</div>
+</div>
+<section>
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold">O que Oferecemos</h1>
+        <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Nascemos com a necessidade de cuidar adequadamente de nossos Pets, com todo carinho e respeito que eles merecem,
+         aliado com a intenção de dar suporte, orientação e acompanhamento diferenciado a todos os clientes.</p>
+         <p class="lead mb-4">Oferecemos ao seu Pet:
+        - Agradável e moderna Infra-estrutura;
+
+        - Estacionamento;
+
+        - Boutique com produtos importados e diferenciados;
+
+        - Sala de secagem separada da sala de banho;
+
+        - Produtos de banho e tosa hipoalergênicos;
+
+        - Shampoos especiais para pelagem clara e escura;
+
+        - Mascaras de hidratação;</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
