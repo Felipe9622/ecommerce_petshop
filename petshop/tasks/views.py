@@ -45,18 +45,20 @@ def Login(request):
 @login_required
 def Usuario(request):
     table = Task.objects.all()
+<<<<<<< HEAD
     tasks_list = Task.objects.all().order_by('-created_at')
     paginator = Paginator(tasks_list, 2)
+=======
+    tasks_list = Task.objects.all().order_by('-created_at').filter(user=request.user)
+    paginator = Paginator(tasks_list, 4)
+>>>>>>> laboratorio
     page = request.GET.get('page')
     tasks = paginator.get_page(page)
     return render(request, 'tasks/tela_usuario.html', {'tasks': tasks, 'table': table})
     
 
-
-
 def Sobre(request):
     return render(request, 'about/sobre_nos.html')
-
 
 
 class ListAndCreate(generics.ListCreateAPIView):
