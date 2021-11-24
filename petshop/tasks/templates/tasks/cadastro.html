@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block title %}Cadastro de usuário{% endblock  %}
 {% block content %}
-<section id="content" style="background-image: url('https://images.pexels.com/photos/374825/pexels-photo-374825.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')">
+<section id="content" style="background-image: url('{% static 'images/pexels-sebastian-coman-travel-3609287 (1).jpg'%}');">
    <div class="content-wrap">
       <div class="container clearfix" >
          <div class="tabs mx-auto mb-0 clearfix ui-tabs ui-corner-all ui-widget ui-widget-content" id="tab-login-register" style="max-width: 500px;">
@@ -31,3 +32,4 @@
    </div>
 </section>
 {% endblock %}
+

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Pagina principal{% endblock  %}
 
@@ -8,7 +9,7 @@
 <header>
    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-         <div class="carousel-item active" style="background-image: url('static/images/pexels-snapwire-46024.jpg')">
+         <div class="carousel-item active" style="background-image: url('{% static 'images/pexels-snapwire-46024.jpg'%}');">
             <div class="carousel-caption">
                <h1 style="color: black; font-size: 3.75rem;">Pet Mania</h1>
                <p class="text-black-60 mb-0">Serviço veterinario e cuidado higienico para seu pet</p>
@@ -24,7 +25,9 @@
       <p class="lead">Só quem é apaixonado por animais sabe: a relação de amor e cumplicidade que temos com nossos bichinhos de estimação
          é um vínculo único! Por essa razão, não medimos esforços para oferecer o que há de melhor para trazer ainda mais alegria e qualidade de vida. </a>!
       </p>
+
    </div>
 </section>
+
 
 {% endblock %}

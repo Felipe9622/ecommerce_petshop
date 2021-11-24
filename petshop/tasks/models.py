@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime, date
 from django.contrib.auth import get_user_model
 
 STATUS = (
@@ -46,7 +47,9 @@ class Task(models.Model):
     )
 
     appointment_date = models.DateField(
-        verbose_name="data de agendamento", 
+        verbose_name="data de agendamento (mm/dd/2021)",
+
+        
 
     )
 
