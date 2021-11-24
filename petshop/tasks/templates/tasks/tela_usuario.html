@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}usuario-{{ request.user.username.title }}{% endblock  %}
 
@@ -7,7 +8,7 @@
     <body>
 
         <!-- Header - set the background image for the header in the line below-->
-        <header class="py-5 bg-image-full" style="background-image: url('https://images.pexels.com/photos/3628100/pexels-photo-3628100.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')">
+        <header class="py-5 bg-image-full" style="background-image: url('{% static 'images/pexels-eddie-galaxy-3628100.jpg'%}');">
             <div class="text-center my-5">
                 <img class="img-fluid rounded-circle mb-4" src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg" alt="..." />
                 <h1 class="text-white fs-3 fw-bolder">Bem-Vindo, {{ request.user.username.title }} </h1>
@@ -69,7 +70,7 @@
             </div>
         </section>
         <!-- Image element - set the background image for the header in the line below-->
-        <div class="py-5 bg-image-full" style="background-image: url('https://images.pexels.com/photos/374825/pexels-photo-374825.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')">
+        <div class="py-5 bg-image-full" style="background-image: url('{% static 'images/pexels-burst-374825.jpg'%}');">
             <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
             <div style="height: 20rem"></div>
         </div>
