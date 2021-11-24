@@ -18,34 +18,49 @@
         <!-- Content section-->
         <section class="pagination">
             <div class="container my-5">
-            <ul class="task-list">
-                {% for task in tasks %}
-                {% if task.done == 'pendente' %}
-                    <li class="task-item">
-                {% else %}
-                    <li class="task-item done">
-                {% endif %}
-                        <span>{{task.name}}</a></span>
-                    </li>
-                {% endfor %}
-            </ul>
-            <div class="pagination">
-                <span class="step-links">
-                    {% if tasks.has_previous %}
-                        <a href="?page={{ tasks.previous_page_number }}"><i class="fas fa-arrow-left"></i></a>
-                    {% endif %}
-                    
-                    {% if tasks.paginator.num_pages %}
-                    <span class="current">
-                        {{ tasks.number }} de {{ tasks.paginator.num_pages }}
-                    </span>
-                    {% endif %}
-                
-                    {% if tasks.has_next %}
-                        <a href="?page={{ tasks.next_page_number }}"><i class="fas fa-arrow-right"></i></a>
-                    {% endif %}
-                </span>
-            </div>
+<table class="table">
+                    {% for task in tasks %}
+                    {% if task.done == 'pendente' %}
+							  <thead>
+								<tr>
+								  <th>status</th>
+								  <th>paciente</th>
+								  <th>data</th>
+								</tr>
+							  </thead>
+                              {% endif %}
+							  <tbody>
+								<tr>
+								  <td>{{task.done}}</td>
+                                  <td>{{task.name}}</td>
+								  <td>{{task.appointment_date}}</td>
+								</tr>
+							  </tbody>
+							</table>
+                    {% endfor %}
+                    <ul class="pagination">
+                        {% if tasks.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ tasks.previous_page_number }}" aria-label="Previous"> 
+                                    <span aria-hidden="true">
+                                    Anterior
+                                    </span>
+                                </a>
+                            </li>
+                        {% endif %}
+                            <li class="page-item">
+                                {{ tasks.number }} de {{ tasks.paginator.num_pages }}
+                            </li>
+                        {% if tasks.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ tasks.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">
+                                    Proximo
+                                    </span>
+                                </a>
+                            </li>
+                        {% endif %}          
+                    </ul>
             </div>
         </section>
         <!-- Image element - set the background image for the header in the line below-->

@@ -46,7 +46,7 @@ def Login(request):
 def Usuario(request):
     table = Task.objects.all()
     tasks_list = Task.objects.all().order_by('-created_at')
-    paginator = Paginator(tasks_list, 3)
+    paginator = Paginator(tasks_list, 4)
     page = request.GET.get('page')
     tasks = paginator.get_page(page)
     return render(request, 'tasks/tela_usuario.html', {'tasks': tasks, 'table': table})
