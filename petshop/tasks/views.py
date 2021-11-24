@@ -45,7 +45,7 @@ def Login(request):
 @login_required
 def Usuario(request):
     table = Task.objects.all()
-    tasks_list = Task.objects.all().order_by('-created_at')
+    tasks_list = Task.objects.all().order_by('-created_at').filter(user=request.user)
     paginator = Paginator(tasks_list, 4)
     page = request.GET.get('page')
     tasks = paginator.get_page(page)

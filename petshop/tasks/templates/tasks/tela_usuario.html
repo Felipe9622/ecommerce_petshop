@@ -16,9 +16,10 @@
          <table class="table">
             <thead>
                <tr>
-                <th>Status</th>
-                <th>Nome do animal</th>
-                <th>Data agendada</th>
+               <th>Status</th>
+               <th>Nome do animal</th>
+               <th>Data agendada</th>
+               <th>Horario</th>
                </tr>
             </thead>
             {% for task in tasks %}
@@ -29,9 +30,11 @@
                {% endif %}
                <tbody>
                   <tr>
-                    <td>{{task.done}}</td>
-                    <td>{{task.name}}</td>
-                    <td>{{task.appointment_date}}</td>
+                  <td>{{task.done}}</td>
+                  <td>{{task.name}}</td>
+                  <td>{{task.appointment_date}}</td>
+                  <td>{{task.hours}}</td>
+                    
                   </tr>
                </tbody>
             </li>
