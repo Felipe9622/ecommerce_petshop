@@ -17,8 +17,17 @@ TYPE = (
     ('porquinho_da_índia', 'Porquinho da índia'),
 )
 
+TIME = (
+    ('9:00', '9:00'),
+    ('10:00', '10:00'),
+)
 
 class Task(models.Model):
+    cpf = models.CharField(
+        max_length=11,
+        verbose_name='digite seu cpf',
+
+    )
     phone = models.CharField(
         max_length=11, 
         verbose_name='Telefone', 
@@ -47,9 +56,11 @@ class Task(models.Model):
 
     appointment_date = models.DateField(
         verbose_name="data de agendamento (mm/dd/2021)",
+    )
 
-        
-
+    hours = models.CharField(
+        max_length=15,
+        choices=TIME,
     )
 
     done = models.CharField(
