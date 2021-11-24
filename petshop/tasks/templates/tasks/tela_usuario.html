@@ -33,7 +33,9 @@
                             </tr>
                         </thead>
                         {% for task in table%}
+                        {% if task.done == 'finalizado' %}
                         <tbody>
+                        {% endif %}
                             <tr>
                                 <td>{{task.id}}</td>
                                 <td>{{task.done}}</td>
@@ -41,6 +43,7 @@
                                 <td>{{task.appointment_date}}</td>
                             </tr>
                         </tbody>
+
                         {% endfor %}
                     </table>
                     <ul class="pagination">
