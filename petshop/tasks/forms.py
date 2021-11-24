@@ -6,5 +6,5 @@ from .models import Task
 class AddData(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ('name', 'phone', 'email',
+        fields = ('phone', 'email', 'name',
                   'animal_race', 'problem', 'appointment_date')

@@ -19,22 +19,21 @@ TYPE = (
 
 
 class Task(models.Model):
-    name = models.CharField(
-        max_length=100,
-        verbose_name="Nome"
-    )
     phone = models.CharField(
         max_length=11, 
         verbose_name='Telefone', 
-        default=False
+
     )
     email = models.EmailField(
         blank=True, 
         null=True,
         verbose_name='E-mail', 
-        default=False
-    )
 
+    )
+    name = models.CharField(
+        max_length=100,
+        verbose_name="Nome do animal"
+    )
     animal_race = models.CharField(
     max_length=100,
     choices=TYPE,

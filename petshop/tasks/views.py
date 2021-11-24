@@ -52,8 +52,6 @@ def Usuario(request):
     return render(request, 'tasks/tela_usuario.html', {'tasks': tasks, 'table': table})
     
 
-
-
 def Sobre(request):
     return render(request, 'about/sobre_nos.html')
 
