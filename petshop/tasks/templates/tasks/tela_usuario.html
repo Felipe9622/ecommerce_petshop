@@ -79,65 +79,6 @@
                <p class="lead">Nosso serviço conta com os melhores profissionais na area.</p>
                <a href="cadastro/" class="button button-border button-circle button-dark">Agende uma consulta</a>
             </div>
-<<<<<<< HEAD
-            
-        </header>
-        <!-- Content section-->
-        <section class="py-5">
-            <div class="container my-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <h2>Agendamentos Cadastrados.</h2>
-                    </div>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Status</th>
-                                <th>Paciente</th>
-                                <th>Data Agendada</th>
-
-                            </tr>
-                        </thead>
-                        {% for task in table%}
-                        {% if task.done == 'finalizado' %}
-                        <tbody>
-                        {% endif %}
-                            <tr>
-                                <td>{{task.id}}</td>
-                                <td>{{task.done}}</td>
-                                <td>{{task.user}}</td>
-                                <td>{{task.appointment_date}}</td>
-                            </tr>
-                        </tbody>
-
-                        {% endfor %}
-                    </table>
-                    <ul class="pagination">
-                        {% if tasks.has_previous %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ tasks.previous_page_number }}" aria-label="Previous"> 
-                                    <span aria-hidden="true">
-                                    Anterior
-                                    </span>
-                                </a>
-                            </li>
-                        {% endif %}
-                            <li class="page-item">
-                                {{ tasks.number }} de {{ tasks.paginator.num_pages }}
-                            </li>
-                        {% if tasks.has_next %}
-                            <li class="page-item">
-                                <a class="page-link" href="?page={{ tasks.next_page_number }}" aria-label="Next">
-                                    <span aria-hidden="true">
-                                    Proximo
-                                    </span>
-                                </a>
-                            </li>
-                        {% endif %}          
-					</ul>
-                </div>
-=======
          </div>
       </div>
    </section>
@@ -148,7 +89,6 @@
                <h2>Venha conhecer nossos Produtos</h2>
                <p class="lead">Conheça nossos diversos produtos para seus bichinhos.</p>
                <a href="/accounts/register" class="button button-border button-circle button-dark">Visite nossa loja</a>
->>>>>>> laboratorio
             </div>
          </div>
       </div>
