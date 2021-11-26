@@ -32,8 +32,16 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'accounts',
     'rest_framework',
-    
+    #debug_toolbar#
+    "debug_toolbar",  
 ]
+#-------------------debug_toolbar----------------------#
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
+#end
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -42,7 +50,10 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    #-------------------debug_toolbar----------------------#
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+
 ]
 
 ROOT_URLCONF = 'petshop.urls'
