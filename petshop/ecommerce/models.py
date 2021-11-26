@@ -1,11 +1,17 @@
 from django.db import models
 
+
+#Banner
+class Banner(models.Model):
+    img = models.CharField(max_length=200)
+    alt_text = models.CharField(max_length=32)
+
 #Categoria
 class Category(models.Model):
     title = models.CharField(max_length=100,
     verbose_name='categoria do produto')
 
-    image = models.ImageField(upload_to='dadosCategory',
+    image = models.ImageField(upload_to='ecommerce/cofre/dadosCategory',
     verbose_name='imagem do produto')
 
     def __str__(self):
@@ -16,7 +22,7 @@ class Brand(models.Model):
     title = models.CharField(max_length=100,
     verbose_name='marca do produto')
 
-    image = models.ImageField(upload_to='dadosBrand',
+    image = models.ImageField(upload_to='ecommerce/cofre/dadosBrand',
     verbose_name='imagem do produto')
 
     def __str__(self):
@@ -35,13 +41,13 @@ class Size(models.Model):
 
 #Modelo do Produto
 class Product(models.Model):
-    title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='produto')#upload_to ciria uma pasta e todas as fotos que 
+    title = models.CharField(max_length=200, verbose_name='titulo do produto')
+    # upload_to ciria uma pasta e todas as fotos que
+    image = models.ImageField(upload_to='ecommerce/cofre/dadosProduct')
     #forem adicionadas ficaram guardadas na pasta 
     slug = models.CharField(max_length=400)
-    detail = models.TextField()
-    specs = models.TextField()
-    price = models.PositiveIntegerField()
+    detail = models.TextField(verbose_name='detalhes')
+    specs = models.TextField(verbose_name='especificações')
 
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
@@ -51,3 +57,13 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
+
+# Atributos do Produto
+class ProductAttribute(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    size = models.ForeignKey(Product, on_delete=models.CASCADE)
+    price = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.product.title
+    
