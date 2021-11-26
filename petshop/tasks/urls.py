@@ -10,6 +10,7 @@ urlpatterns = [
     path('login/', views.Login, name="login"),
     path('usuario/', views.Usuario, name="usuario"),
     path('sobre_nos/', views.Sobre, name="sobre_nos"),
+    path('loja/', views.Ecommerce, name="loja"),
     path('dados/', ListAndCreate.as_view()),
     path('dados/<int:pk>/', DetailAndDelete.as_view()),
 ]

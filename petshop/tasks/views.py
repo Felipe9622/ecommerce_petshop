@@ -15,6 +15,13 @@ def Pagina(request):
     return render(request, 'tasks/pagina_principal.html')
 
 
+def Sobre(request):
+    return render(request, 'about/sobre_nos.html')
+
+def Ecommerce(request):
+    return render(request, 'e-commerce/ecommerce.html')
+
+@login_required
 def Sucesso(request):
     return render(request, 'tasks/sucesso.html')
 
@@ -52,9 +59,6 @@ def Usuario(request):
     tasks = paginator.get_page(page)
     return render(request, 'tasks/tela_usuario.html', {'tasks': tasks, 'table': table})
     
-
-def Sobre(request):
-    return render(request,'about/sobre_nos.html')
 
 
 class ListAndCreate(generics.ListCreateAPIView):
