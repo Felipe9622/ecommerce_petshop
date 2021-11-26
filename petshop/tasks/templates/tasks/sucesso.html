@@ -6,11 +6,6 @@
 {% block content %}
 
 {% if messages %}
-<ul class="messages">
-   {% for message in messages %}
-   <li {% if message.tags %}class="alert alert-{{message.tags}}"{% endif %}>{{message}}</li>
-   {% endfor %}
-</ul>
 {% endif %}
 <div class="py-5 bg-image-full" style="background-image: url('{% static 'images/cadastro_bem_sucedido.jpg'%}');">
     <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
@@ -23,8 +18,9 @@
     <div class="px-4 py-5 my-5 text-center">
         <h1 class="display-5 fw-bold">Agora é somente aguardar</h1>
         <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">Seu agendamento foi cadasrtado com sucesso e ja foi encamihado para nosso sistema,
-        é orientado ao chegar no consultorio, apresente RG do usuario cadastrado.</p>
+            <p class="lead mb-4">Seu agendamento foi cadasrtado com sucesso e ja foi encamihado para nosso sistema,
+            é orientado ao chegar no consultorio, apresente RG do usuario cadastrado.</p>
+            <a href="{% url 'usuario' %}" class="button button-border button-circle button-dark">Retorne para a pagina principal</a>
         </div>
     </div>
 </section>
