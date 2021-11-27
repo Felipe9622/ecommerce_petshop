@@ -11,7 +11,7 @@ class Category(models.Model):
     title = models.CharField(max_length=100,
     verbose_name='categoria do produto')
 
-    image = models.ImageField(upload_to='ecommerce/cofre/dadosCategory',
+    image = models.ImageField(upload_to='ecommerce/media/dadosCategory',
     verbose_name='imagem do produto')
 
     def __str__(self):
@@ -22,7 +22,7 @@ class Brand(models.Model):
     title = models.CharField(max_length=100,
     verbose_name='marca do produto')
 
-    image = models.ImageField(upload_to='ecommerce/cofre/dadosBrand',
+    image = models.ImageField(upload_to='ecommerce/media/dadosBrand',
     verbose_name='imagem do produto')
 
     def __str__(self):
@@ -43,7 +43,7 @@ class Size(models.Model):
 class Product(models.Model):
     title = models.CharField(max_length=200, verbose_name='titulo do produto')
     # upload_to ciria uma pasta e todas as fotos que
-    image = models.ImageField(upload_to='ecommerce/cofre/dadosProduct')
+    image = models.ImageField(upload_to='ecommerce/media/dadosProduct')
     #forem adicionadas ficaram guardadas na pasta 
     slug = models.CharField(max_length=400)
     detail = models.TextField(verbose_name='detalhes')

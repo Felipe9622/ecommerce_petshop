@@ -1,6 +1,7 @@
 
 from django.shortcuts import render, redirect
 from rest_framework import generics
+from ecommerce.models import Category
 from tasks.serializer import TodoSerializers
 from .models import Task
 
@@ -19,7 +20,8 @@ def Sobre(request):
     return render(request, 'about/sobre_nos.html')
 
 def Ecommerce(request):
-    return render(request, 'e-commerce/ecommerce.html')
+    table_ecomerce = Category.objects.all().order_by('-id')
+    return render(request, 'e-commerce/ecommerce.html', {'table_ecomerce': table_ecomerce})
 
 @login_required
 def Sucesso(request):
