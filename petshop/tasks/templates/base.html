@@ -35,6 +35,15 @@
                </a>
                <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
                   {% if user.is_authenticated %}<!--pode ver sendo somente tendo feito login-->
+
+                  <li>
+                     <a href="{% url 'usuario' %}" class="nav-link text-white">
+                        <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                           <use xlink:href="#home"></use>
+                        </svg>
+                        Pagina Principal
+                     </a>
+                  </li>
                   <li>
                      <a href="{% url 'cadastro' %}" class="nav-link text-white">
                         <svg class="bi d-block mx-auto mb-1" width="24" height="24">
@@ -45,7 +54,7 @@
                   </li>
                   {% else %}
                   <li>
-                     <a href="/" class="nav-link text-secondary">
+                     <a href="/" class="nav-link text-white">
                         <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                            <use xlink:href="#home"></use>
                         </svg>
@@ -54,7 +63,7 @@
                   </li>
                   {% endif %}
                   <li>
-                     <a href="#" class="nav-link text-white">
+                     <a href="{% url 'loja' %}" class="nav-link text-white">
                         <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                            <use xlink:href="#speedometer2"></use>
                         </svg>
