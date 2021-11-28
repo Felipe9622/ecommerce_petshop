@@ -6,6 +6,12 @@ class Banner(models.Model):
     img = models.CharField(max_length=200)
     alt_text = models.CharField(max_length=32)
 
+    class Meta:  # substitui o nome no banco de dados na pagina do admin
+        verbose_name_plural = 'Banner'
+
+    def __str__(self):
+        return self.alt_text
+
 
 #Categoria
 class Category(models.Model):
@@ -73,9 +79,11 @@ class Product(models.Model):
 
 # Atributos do Produto
 class ProductAttribute(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    size = models.ForeignKey(Size, on_delete=models.CASCADE)
-    price = models.PositiveIntegerField()
+    product = models.ForeignKey(
+        Product, on_delete=models.CASCADE, verbose_name='Produto')
+    size = models.ForeignKey(
+        Size, on_delete=models.CASCADE, verbose_name='Tamanho')
+    price = models.PositiveIntegerField(verbose_name='Peso')
 
     class Meta:  # substitui o nome no banco de dados na pagina do admin
         verbose_name_plural = 'Atributos do Produto'
