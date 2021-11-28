@@ -27,14 +27,13 @@ def Ecommerce_Categorias(request):
 
 
 def Ecommerce_Categoias_lista(request, product_id):
-    category = Category.objects.get(id=product_id)
-    table_category = Product.objects.filter(category=category).order_by('-id')
+    category = Category.objects.get(id=product_id)#pega o banco selecionado  
+    table_category = Product.objects.filter(category=category).order_by(
+        '-id')  # interage o banco Category com o banco Product, objects.filter pega todos os dados do banco 
     return render(request, 'e-commerce/ecommerce_categorias_lista.html', {'table_category': table_category})
 
 
-def Ecommerce_Marcas(request):
-    brand_list = Brand.objects.all().order_by('-id')
-    return render(request, 'e-commerce/ecommerce_marcas.html', {'brand_list': brand_list})
+
 #ecommerce end
 
 #paginas sem usuario estar logado end
