@@ -13,8 +13,8 @@ urlpatterns = [
     path('login/', views.Login, name="login"),
     path('usuario/', views.Usuario, name="usuario"),
     path('sobre_nos/', views.Sobre, name="sobre_nos"),
-    path('loja/', views.Ecommerce_Categoias, name="loja"),
-    path('loja-marcas/', views.Ecommerce_Marcas, name="loja-marcas"),
+    path('loja/', views.Ecommerce_Categorias, name="loja"),
+    path('loja-produtos/<int:product_id>', views.Ecommerce_Categoias_lista, name="loja-produtos"),
     path('dados/', ListAndCreate.as_view()),
     path('dados/<int:pk>/', DetailAndDelete.as_view()),
 ]
