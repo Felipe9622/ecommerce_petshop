@@ -18,5 +18,6 @@ urlpatterns = [
     path('dados/<int:pk>/', DetailAndDelete.as_view()),
 ]
 
+#--------------adicionando imagem no ecommerce-------#
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

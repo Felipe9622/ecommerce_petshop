@@ -4,7 +4,6 @@ from rest_framework import generics
 from ecommerce.models import Category
 from tasks.serializer import TodoSerializers
 from .models import Task
-
 from .forms import AddData
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
