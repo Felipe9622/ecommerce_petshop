@@ -1,7 +1,7 @@
 
 from django.shortcuts import render, redirect
 from rest_framework import generics
-from ecommerce.models import Category
+from ecommerce.models import Brand, Category
 from tasks.serializer import TodoSerializers
 from .models import Task
 from .forms import AddData
@@ -18,9 +18,14 @@ def Pagina(request):
 def Sobre(request):
     return render(request, 'about/sobre_nos.html')
 
-def Ecommerce(request):
-    table_ecomerce = Category.objects.all().order_by('-id')
-    return render(request, 'e-commerce/ecommerce.html', {'table_ecomerce': table_ecomerce})
+def Ecommerce_Categoias(request):
+    table_category = Category.objects.all().order_by('-id')
+    return render(request, 'e-commerce/ecommerce_categorias.html', {'table_category': table_category})
+
+
+def Ecommerce_Marcas(request):
+    brand_list = Brand.objects.all().order_by('-id')
+    return render(request, 'e-commerce/ecommerce_marcas.html', {'brand_list': brand_list})
 
 @login_required
 def Sucesso(request):
