@@ -1,7 +1,7 @@
 
 from django.shortcuts import render, redirect
 from rest_framework import generics
-from ecommerce.models import Brand, Category
+from ecommerce.models import Brand, Category, Product
 from tasks.serializer import TodoSerializers
 from .models import Task
 
@@ -11,7 +11,7 @@ from django.core.paginator import Paginator
 from django.contrib import messages
 
 
-
+#paginas sem usuario estar logado begin
 def Pagina(request):
     return render(request, 'tasks/pagina_principal.html')
 
@@ -19,15 +19,28 @@ def Pagina(request):
 def Sobre(request):
     return render(request, 'about/sobre_nos.html')
 
-def Ecommerce_Categoias(request):
+
+#begin ecommerce
+def Ecommerce_Categorias(request):
     table_category = Category.objects.all().order_by('-id')
     return render(request, 'e-commerce/ecommerce_categorias.html', {'table_category': table_category})
+
+
+def Ecommerce_Categoias_lista(request, product_id):
+    category = Category.objects.get(id=product_id)
+    table_category = Product.objects.filter(category=category).order_by('-id')
+    return render(request, 'e-commerce/ecommerce_categorias_lista.html', {'table_category': table_category})
 
 
 def Ecommerce_Marcas(request):
     brand_list = Brand.objects.all().order_by('-id')
     return render(request, 'e-commerce/ecommerce_marcas.html', {'brand_list': brand_list})
+#ecommerce end
 
+#paginas sem usuario estar logado end
+
+
+#paginas com usuario logado begin
 @login_required
 def Sucesso(request):
     return render(request, 'tasks/sucesso.html')
@@ -65,7 +78,11 @@ def Usuario(request):
     page = request.GET.get('page')
     tasks = paginator.get_page(page)
     return render(request, 'tasks/tela_usuario.html', {'tasks': tasks, 'table': table})
+
+#paginas com usuario logado end 
     
+
+
 
 
 class ListAndCreate(generics.ListCreateAPIView):
