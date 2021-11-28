@@ -7,7 +7,7 @@
       <meta name="author" content="SemiColonWeb" />
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <!-- logo-->
+      <!-- Favicon-->
       <link rel="icon" type="image/x-icon" href="{% static 'logos/logo1.ico'%}" />
       <title>{% block title %}Pagina de apresentação{% endblock  %}</title>
       <meta name="description" content="">
@@ -72,6 +72,14 @@
                         Produtos
                      </a>
                      
+                  </li>
+                  <li>
+                     <a href="{% url 'loja-marcas' %}" class="nav-link text-white">
+                        <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                           <use xlink:href="#table"></use>
+                        </svg>
+                        Marcas
+                     </a>
                   </li>
                   <li>
                      <a class="nav-link text-white" href="{% url 'sobre_nos' %}">
