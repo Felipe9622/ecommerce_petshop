@@ -1,7 +1,7 @@
 
 from django.shortcuts import render, redirect
 from rest_framework import generics
-from ecommerce.models import Brand, Category, Product
+from ecommerce.models import Category, Product
 from tasks.serializer import TodoSerializers
 from .models import Task
 from .forms import AddData
@@ -27,9 +27,13 @@ def Ecommerce_Categorias(request):
 
 def Ecommerce_Categoias_lista(request, product_id):
     category = Category.objects.get(id=product_id)#pega o banco selecionado  
-    table_category = Product.objects.filter(category=category).order_by(
-        '-id')  # interage o banco Category com o banco Product, objects.filter pega todos os dados do banco 
+    table_category = Product.objects.filter(category=category).order_by('-id')  
+    # interage o banco Category com o banco Product, objects.filter pega todos os dados do banco 
     return render(request, 'e-commerce/ecommerce_categorias_lista.html', {'table_category': table_category})
+
+def Detalhes_Produto(request,slug,id):
+    product = Product.objects.get(id=id)
+    return render(request, 'e-commerce/detalhes_do_produto.html', {'data': product})
 
 
 
