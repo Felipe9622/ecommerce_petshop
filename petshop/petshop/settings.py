@@ -36,6 +36,10 @@ INSTALLED_APPS = [
     #debug_toolbar#
     "debug_toolbar",  
 ]
+
+
+
+
 #-------------------debug_toolbar----------------------#
 INTERNAL_IPS = [
     # ...
@@ -145,5 +149,6 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 LOGIN_REDIRECT_URL = '/usuario'
 LOGOUT_REDIRECT_URL = '/accounts/login'
+
 
 
