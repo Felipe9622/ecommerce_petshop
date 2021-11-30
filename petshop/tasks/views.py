@@ -13,7 +13,8 @@ from django.contrib import messages
 
 #paginas sem usuario estar logado begin
 def Pagina(request):
-    return render(request, 'tasks/pagina_principal.html')
+    table_category = Product.objects.filter(is_featured=True).order_by('-id')
+    return render(request, 'tasks/pagina_principal.html', {'table_category': table_category})
 
 
 def Sobre(request):

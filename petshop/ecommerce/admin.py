@@ -9,8 +9,9 @@ admin.site.register(Banner)
 
 #Modelo do Produto
 class ProductAdmin(admin.ModelAdmin):
-    list_display=('id', 'title', 'brand', 'size', 'status')
-    list_editable=('status',)#precisa manter a , logo apos que colocar 'status' se tirar vai apresentar uma mensagem de erro
+    list_display = ('id', 'title', 'brand', 'size', 'status', 'is_featured')
+    # precisa manter a , logo apos que colocar 'status' se tirar vai apresentar uma mensagem de erro
+    list_editable = ('status', 'is_featured')
 admin.site.register(Product,ProductAdmin)
 
 # Atributos do Produto

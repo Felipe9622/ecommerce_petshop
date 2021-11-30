@@ -27,6 +27,7 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
+
 #Marca
 class Brand(models.Model):
     title = models.CharField(max_length=100,
@@ -67,9 +68,10 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
     size = models.ForeignKey(Size, on_delete=models.CASCADE)
+    #models.BooleanField(default=True) apresenta a opção para flegar se esta valida ou não
     status = models.BooleanField(default=True)
-    #models.BooleanField(default=True) apresenta a opção para flegar se esta valida ou não 
-
+    is_featured = models.BooleanField(
+        default=False, verbose_name='visivel na pagina principal')
     class Meta:  # verbose_name_plural substitui o nome no banco de dados na pagina do admin
         verbose_name_plural = 'Produtos'
 
