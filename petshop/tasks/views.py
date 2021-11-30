@@ -21,17 +21,23 @@ def Sobre(request):
 
 
 #begin ecommerce
+
+#categoria dos produtos
 def Ecommerce_Categorias(request):
     table_category = Category.objects.all().order_by('-id')
     return render(request, 'e-commerce/ecommerce_categorias.html', {'table_category': table_category})
 
-
+#lista de produtos
 def Ecommerce_Categoias_lista(request, product_id):
     category = Category.objects.get(id=product_id)#pega o banco selecionado  
     table_category = Product.objects.filter(category=category).order_by(
         '-id')  # interage o banco Category com o banco Product, objects.filter pega todos os dados do banco 
     return render(request, 'e-commerce/ecommerce_categorias_lista.html', {'table_category': table_category})
 
+#detalhes dos produtos
+def Detalhes_Produtos(request,slug,id):
+    product = Product.objects.get(id=id)
+    return render(request, 'e-commerce/detalhes_do_produto.html', {'product': product})
 
 
 #ecommerce end
