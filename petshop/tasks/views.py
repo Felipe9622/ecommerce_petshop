@@ -13,8 +13,8 @@ from django.contrib import messages
 
 #paginas sem usuario estar logado begin
 def Pagina(request):
-    table_category = Product.objects.filter(is_featured=True).order_by('-id')
-    return render(request, 'tasks/pagina_principal.html', {'table_category': table_category})
+    data = Product.objects.filter(is_featured=True).order_by('-id')
+    return render(request, 'tasks/pagina_principal.html', {'data': data})
 
 
 def Sobre(request):
@@ -25,20 +25,19 @@ def Sobre(request):
 
 #categoria dos produtos
 def Ecommerce_Categorias(request):
-    table_category = Category.objects.all().order_by('-id')
-    return render(request, 'e-commerce/ecommerce_categorias.html', {'table_category': table_category})
+    data = Category.objects.all().order_by('-id')
+    return render(request, 'e-commerce/ecommerce_categorias.html', {'data': data})
 
 #lista de produtos
 def Ecommerce_Categoias_lista(request, product_id):
-    category = Category.objects.get(id=product_id)#pega o banco selecionado  
-    table_category = Product.objects.filter(category=category).order_by(
-        '-id')  # interage o banco Category com o banco Product, objects.filter pega todos os dados do banco 
-    return render(request, 'e-commerce/ecommerce_categorias_lista.html', {'table_category': table_category})
+    category = Category.objects.get(id=product_id) 
+    data = Product.objects.filter(category=category).order_by('-id')  # interage o banco Category com o banco Product, objects.filter pega todos os dados do banco 
+    return render(request, 'e-commerce/ecommerce_categorias_lista.html', {'data': data})
 
 #detalhes dos produtos
 def Detalhes_Produtos(request,slug,id):
     product = Product.objects.get(id=id)
-    return render(request, 'e-commerce/product_detail.html', {'table_category': product})
+    return render(request, 'e-commerce/product_detail.html', {'product': product})
 
 
 #ecommerce end
