@@ -7,7 +7,7 @@ class Banner(models.Model):
     alt_text = models.CharField(max_length=32)
 
     class Meta:  # verbose_name_plural substitui o nome no banco de dados na pagina do admin
-        verbose_name_plural = 'Banners'
+        verbose_name_plural = '6.Banners'
 
     def __str__(self):
         return self.alt_text
@@ -22,7 +22,7 @@ class Category(models.Model):
     verbose_name='imagem do produto')
 
     class Meta:  # verbose_name_plural substitui o nome no banco de dados na pagina do admin
-        verbose_name_plural = 'Categorias'
+        verbose_name_plural = '1.Categorias'
 
     def __str__(self):
         return self.title
@@ -37,7 +37,7 @@ class Brand(models.Model):
     verbose_name='imagem do produto')
 
     class Meta:  # verbose_name_plural substitui o nome no banco de dados na pagina do admin
-        verbose_name_plural = 'Marcas'
+        verbose_name_plural = '3.Marcas'
 
     def __str__(self):
         return self.title
@@ -49,7 +49,7 @@ class Size(models.Model):
     verbose_name='tamanho do produto')
 
     class Meta:  # verbose_name_plural substitui o nome no banco de dados na pagina do admin
-        verbose_name_plural = 'Tamanhos'
+        verbose_name_plural = '4.Tamanhos'
 
     def __str__(self):
         return self.title
@@ -70,10 +70,11 @@ class Product(models.Model):
     size = models.ForeignKey(Size, on_delete=models.CASCADE)
     #models.BooleanField(default=True) apresenta a opção para flegar se esta valida ou não
     status = models.BooleanField(default=True)
+    #is_featured vai ser habilitado para mostrar os produtos em destaque na pagina inicial
     is_featured = models.BooleanField(
         default=False, verbose_name='visivel na pagina principal')
     class Meta:  # verbose_name_plural substitui o nome no banco de dados na pagina do admin
-        verbose_name_plural = 'Produtos'
+        verbose_name_plural = '2.Produtos'
 
     def __str__(self):
         return self.title
@@ -88,7 +89,7 @@ class ProductAttribute(models.Model):
     price = models.PositiveIntegerField(verbose_name='Peso')
 
     class Meta:  # verbose_name_plural substitui o nome no banco de dados na pagina do admin
-        verbose_name_plural = 'Atributos do Produto'
+        verbose_name_plural = '5.Atributos do Produto'
 
     def __str__(self):
         return self.product.title
