@@ -134,6 +134,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 #--------------adicionando imagem no ecommerce-------#
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

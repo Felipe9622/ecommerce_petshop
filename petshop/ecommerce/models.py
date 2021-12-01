@@ -1,18 +1,6 @@
 from django.db import models
 
 
-#Banner
-class Banner(models.Model):
-    img = models.CharField(max_length=200)
-    alt_text = models.CharField(max_length=32)
-
-    class Meta:  # verbose_name_plural substitui o nome no banco de dados na pagina do admin
-        verbose_name_plural = '6.Banners'
-
-    def __str__(self):
-        return self.alt_text
-
-
 #Categoria
 class Category(models.Model):
     title = models.CharField(max_length=100,
@@ -49,7 +37,7 @@ class Size(models.Model):
     verbose_name='tamanho do produto')
 
     class Meta:  # verbose_name_plural substitui o nome no banco de dados na pagina do admin
-        verbose_name_plural = '4.Tamanhos'
+        verbose_name_plural = '4.Peso'
 
     def __str__(self):
         return self.title
