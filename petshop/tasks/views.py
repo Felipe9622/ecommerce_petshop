@@ -38,7 +38,7 @@ def Ecommerce_Categoias_lista(request, product_id):
 #detalhes dos produtos
 def Detalhes_Produtos(request,slug,id):
     product = Product.objects.get(id=id)
-    return render(request, 'e-commerce/detalhes_do_produto.html', {'product': product})
+    return render(request, 'e-commerce/product_detail.html', {'table_category': product})
 
 
 #ecommerce end
