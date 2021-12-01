@@ -14,7 +14,7 @@ urlpatterns = [
     path('usuario/', views.Usuario, name="usuario"),
     path('sobre_nos/', views.Sobre, name="sobre_nos"),
     path('loja/', views.Ecommerce_Categorias, name="loja"),
-    path('produtos_detalhes/<str:slug>/<int:id>', views.Detalhes_Produtos, name="produtos_detalhes"),
+    path('produtos_detalhes/<int:id>', views.Detalhes_Produtos, name="produtos_detalhes"),
     path('loja-produtos/<int:product_id>', views.Ecommerce_Categoias_lista, name="loja-produtos"),
     path('dados/', ListAndCreate.as_view()),
     path('dados/<int:pk>/', DetailAndDelete.as_view()),

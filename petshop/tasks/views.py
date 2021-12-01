@@ -1,5 +1,5 @@
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404
 from rest_framework import generics
 from ecommerce.models import Brand, Category, Product
 from tasks.serializer import TodoSerializers
@@ -35,9 +35,9 @@ def Ecommerce_Categoias_lista(request, product_id):
     return render(request, 'e-commerce/ecommerce_categorias_lista.html', {'data': data})
 
 #detalhes dos produtos
-def Detalhes_Produtos(request,slug,id):
-    product = Product.objects.get(id=id)
-    return render(request, 'e-commerce/product_detail.html', {'product': product})
+def Detalhes_Produtos(request,id):
+    data = Product.objects.get(id=id)
+    return render(request, 'e-commerce/product_detail.html', {'data': data})
 
 
 #ecommerce end
