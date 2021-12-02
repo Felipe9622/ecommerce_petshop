@@ -155,8 +155,7 @@ LOGIN_REDIRECT_URL = '/usuario'
 LOGOUT_REDIRECT_URL = '/accounts/login'
 
 
-<<<<<<< HEAD
-=======
+
 JAZZMIN_SETTINGS={
     "site_title": "Pet_Mania-Admin",#Rodapé 
     "site_header": "PET_MANIA",#Titulo
@@ -186,5 +185,4 @@ JAZZMIN_UI_TWEAKS = {
     "theme": "simplex",
 }
 
->>>>>>> maternidade
 
