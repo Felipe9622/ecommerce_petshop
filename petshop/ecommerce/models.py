@@ -47,10 +47,10 @@ class Size(models.Model):
 #Modelo do Produto
 class Product(models.Model):
     title = models.CharField(max_length=200, verbose_name='titulo do produto')
-    slug = models.SlugField(default='slug_padrao')
     # upload_to ciria uma pasta e todas as fotos que
     image = models.ImageField(upload_to='dadosProduct/')
     #forem adicionadas ficaram guardadas na pasta 
+    slug = models.CharField(max_length=400)
     detail = models.TextField(verbose_name='detalhes')
     specs = models.TextField(verbose_name='especificações')
 
