@@ -6,6 +6,7 @@ from tasks.views import DetailAndDelete, ListAndCreate
 
 
 
+
 urlpatterns = [
     path('', views.Pagina),
     path('cadastro/', views.Cadastro, name="cadastro"),
