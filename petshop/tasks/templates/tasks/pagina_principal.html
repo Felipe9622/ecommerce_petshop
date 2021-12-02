@@ -23,13 +23,44 @@
    <div class="container">
       <h1 class="fw-light">Venha conhecer nosso serviço</h1>
       <p class="lead">Só quem é apaixonado por animais sabe: a relação de amor e cumplicidade que temos com nossos bichinhos de estimação
-         é um vínculo único! Por essa razão, não medimos esforços para oferecer o que há de melhor para trazer ainda mais alegria e qualidade de vida. </a>!
+         é um vínculo único! Por essa razão, não medimos esforços para oferecer o que há de melhor para trazer ainda mais alegria e qualidade de vida.
       </p>
-
    </div>
 </section>
 <!--end-->
+<section class="py-5">
+   <div class="container">
+   <h1 class="fw-light">Conheça nossos Produtos</h1>
+   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+         <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+               {% for product in data %}
+               <div class="col mb-5">
+                  <div class="card h-100">
+                     <!-- Product image-->
+                     <img class="card-img-top" src="/media/{{product.image}}" alt="{{product.title}}" />
+                     <!-- Product details-->
+                     <div class="card-body p-4">
+                        <div class="text-center">
+                           <h5 class="fw-bolder">{{product.title}}</h5>
+                        </div>
+                     </div>
+                     <!-- Product actions-->
+                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/produtos_detalhes/{{product.id}}">Clique aqui</a></div>
+                     </div>
+                  </div>
+               </div>
+               {% endfor %}
+            </div>
+         </div>
+         <div class="text-center">
+            <a href="{% url 'loja' %}" class="button button-small button-dark button-rounded"><i class="icon-window-restore"></i>Mostrar todos os produtos</a>
+         </div>
+      </div>
+   </div>
+</section>
+
 <!--end-->
-
-
 {% endblock %}

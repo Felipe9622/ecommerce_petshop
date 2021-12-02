@@ -48,6 +48,9 @@ INTERNAL_IPS = [
 ]
 #end
 
+
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -135,6 +138,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 #--------------adicionando imagem no ecommerce-------#
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -151,4 +155,36 @@ LOGIN_REDIRECT_URL = '/usuario'
 LOGOUT_REDIRECT_URL = '/accounts/login'
 
 
+<<<<<<< HEAD
+=======
+JAZZMIN_SETTINGS={
+    "site_title": "Pet_Mania-Admin",#Rodapé 
+    "site_header": "PET_MANIA",#Titulo
+    "site_logo": "logos/logo1.png",#Logo
+
+    # Links to put along the top menu
+    "topmenu_links": [
+
+        # Url that gets reversed (Permissions can be added)
+        {"name": "Dashboard",  "url": "admin:index",
+            "permissions": ["auth.view_user"]},
+
+        # model admin to link to (Permissions checked against model)
+        {"model": "auth.User"},
+
+    ],
+
+
+}
+
+JAZZMIN_SETTINGS["show_ui_builder"] = True
+
+JAZZMIN_UI_TWEAKS = {
+
+    "theme": "flatly",
+    "dark_mode_theme": "darkly",
+    "theme": "simplex",
+}
+
+>>>>>>> maternidade
 
