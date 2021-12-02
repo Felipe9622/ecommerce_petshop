@@ -17,11 +17,6 @@ urlpatterns = [
     path('loja/', views.Ecommerce_Categorias, name="loja"),
     path('loja-produtos/<int:product_id>',views.Ecommerce_Categoias_lista, name="loja-produtos"),
     path('produtos_detalhes/<int:id>', views.Detalhes_Produtos, name="produtos_detalhes"),
-<<<<<<< HEAD
-    path('loja-produtos/<int:product_id>', views.Ecommerce_Categoias_lista, name="loja-produtos"),
-    path('produtos_detalhes/<str:slug>/<int:id>', views.Detalhes_Produto, name="produtos_detalhes"),
-=======
->>>>>>> maternidade
     path('dados/', ListAndCreate.as_view()),
     path('dados/<int:pk>/', DetailAndDelete.as_view()),
 
