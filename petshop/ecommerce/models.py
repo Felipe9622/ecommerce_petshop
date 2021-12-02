@@ -1,6 +1,7 @@
 from django.db import models
 
 
+
 #Categoria
 class Category(models.Model):
     title = models.CharField(max_length=100,
@@ -46,10 +47,10 @@ class Size(models.Model):
 #Modelo do Produto
 class Product(models.Model):
     title = models.CharField(max_length=200, verbose_name='titulo do produto')
+    slug = models.SlugField(default='slug_padrao')
     # upload_to ciria uma pasta e todas as fotos que
     image = models.ImageField(upload_to='dadosProduct/')
     #forem adicionadas ficaram guardadas na pasta 
-    slug = models.CharField(max_length=400)
     detail = models.TextField(verbose_name='detalhes')
     specs = models.TextField(verbose_name='especificações')
 
@@ -74,7 +75,7 @@ class ProductAttribute(models.Model):
         Product, on_delete=models.CASCADE, verbose_name='Produto')
     size = models.ForeignKey(
         Size, on_delete=models.CASCADE, verbose_name='Tamanho')
-    price = models.PositiveIntegerField(verbose_name='Peso')
+    price = models.PositiveIntegerField(verbose_name='Preço')
 
     class Meta:  # verbose_name_plural substitui o nome no banco de dados na pagina do admin
         verbose_name_plural = '5.Atributos do Produto'
