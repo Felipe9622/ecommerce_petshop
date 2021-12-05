@@ -75,7 +75,7 @@ class ProductAttribute(models.Model):
         Product, on_delete=models.CASCADE, verbose_name='Produto')
     size = models.ForeignKey(
         Size, on_delete=models.CASCADE, verbose_name='Tamanho')
-    price = models.PositiveIntegerField(verbose_name='Preço')
+    price = models.CharField(max_length=100, verbose_name='Preço')
 
     class Meta:  # verbose_name_plural substitui o nome no banco de dados na pagina do admin
         verbose_name_plural = '5.Atributos do Produto'
