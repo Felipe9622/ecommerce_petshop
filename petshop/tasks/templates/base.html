@@ -38,7 +38,15 @@
                
                <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
                   {% if user.is_authenticated %}<!--pode ver sendo somente tendo feito login-->
-
+                  <form class="col-12 col-lg-auto mb-1 mb-lg-3 me-lg-3" action="/search" style="margin: 20px;">
+                     <div class="input-group">
+                        <input  name="q" type="text" class="form-control" placeholder="search" />
+                        <div class="input-group-append">
+                        <button class="btn btn-dark" type="submit" id="button-addon1">search</button>
+                        </div>
+                     </div>
+                  </form>
+                  
                   <li>
                      <a href="{% url 'usuario' %}" class="nav-link text-white">
                         <svg class="bi d-block mx-auto mb-1" width="24" height="24">
@@ -84,20 +92,29 @@
                      </a>
                      
                   </li>
+                  
                </ul>
                <div class="text-end">
                   {% if user.is_authenticated %}<!--pode ver sendo somente tendo feito login-->
                   <a href ="/accounts/logout" class="button button-3d button-rounded button-black">Logout</a>
+                  <button class="btn btn-outline-dark" style="background-color: white;" type="submit">
+                  <i class="icon-line-shopping-bag"></i>
+                  Sacola de pedidos
+                  <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                  </button>
+                  
                   {% else %}<!--aparece somente se não efetuou o login-->
                   <a href ="/accounts/register" class="button button-3d button-rounded button-yellow button-light">
                      <i class="icon-user-circle1"></i>Novo Usuario
                   </a>
                   <a href ="/accounts/login" class="button button-3d button-rounded button-blue"><i class="icon-line2-login"></i>Login</a>
-                  <button class="btn btn-outline-dark" type="submit">
-                  <i class="icon-line-shopping-bag"></i>
-                  Cart
-                  <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                  <button class="btn btn-outline-dark" style="background-color: white;" type="submit">
+                     <i class="icon-line-shopping-bag"></i>
+                     Sacola de pedidos
+                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                   </button>
+                  
+                  
                   {% endif %}
                </div>
             </div>
