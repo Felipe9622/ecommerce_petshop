@@ -1,14 +1,13 @@
 
 from django.shortcuts import render, get_object_or_404
 from rest_framework import generics
-from ecommerce.models import Brand, Category, Product
+from ecommerce.models import Category, Product
 from tasks.serializer import TodoSerializers
 from .models import Task
 
 from .forms import AddData
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
-from django.contrib import messages
 
 
 #paginas sem usuario estar logado begin
@@ -30,16 +29,16 @@ def Ecommerce_Categorias(request):
 
 #lista de produtos
 def Ecommerce_Categoias_lista(request, product_id):
-    category = Category.objects.get(id=product_id) 
-    data = Product.objects.filter(category=category).order_by('-id')  # interage o banco Category com o banco Product, objects.filter pega todos os dados do banco 
-    return render(request, 'e-commerce/ecommerce_categorias_lista.html', {'data': data})
+    total_data = Product.objects.count()
+    category = Category.objects.get(id=product_id)
+    # interage o banco Category com o banco Product, objects.filter pega todos os dados do banco
+    data = Product.objects.filter(category=category).order_by('-id')[:3]
+    return render(request, 'e-commerce/ecommerce_categorias_lista.html', {'data': data, 'total_data': total_data,})
 
 #detalhes dos produtos
 def Detalhes_Produtos(request,id):
-    data = Product.objects.get(id=id)
-    related_products = Product.objects.filter(category=data.category).exclude(id=id)[:3]
-    return render(request, 'e-commerce/product_detail.html', {'data': data, 'related_products': related_products})
-
+    product = Product.objects.get(id=id)
+    return render(request, 'e-commerce/product_detail.html', {'data': product})
 
 #ecommerce end
 

@@ -38,15 +38,19 @@
 								<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 									<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/produtos_detalhes/{{product.id}}">Clique aqui</a></div>
 								</div>
+								
 							</div>
 						</div>
 						{% endfor %}
 					{% endif %}
                 </div>
+				<p class="my-4 text-center"><button id="loadMore" data-total="{{total_data}}" data-limit="3" class="btn btn-dark btn-sm">Load More <i class="icon-line2-refresh"></i></button></p>
             </div>
         </section>
 {% include 'footer.html' %}
     </body>
+	
+<script src="{% static "js/custom.js" %}"></script>
 </html>
 
 {% endblock %}
