@@ -29,11 +29,10 @@ def Ecommerce_Categorias(request):
 
 #lista de produtos
 def Ecommerce_Categoias_lista(request, product_id):
-    total_data = Product.objects.count()
     category = Category.objects.get(id=product_id)
     # interage o banco Category com o banco Product, objects.filter pega todos os dados do banco
-    data = Product.objects.filter(category=category).order_by('-id')[:3]
-    return render(request, 'e-commerce/ecommerce_categorias_lista.html', {'data': data, 'total_data': total_data,})
+    data = Product.objects.filter(category=category).order_by('-id')
+    return render(request, 'e-commerce/ecommerce_categorias_lista.html', {'data': data})
 
 #detalhes dos produtos
 def Detalhes_Produtos(request,id):
