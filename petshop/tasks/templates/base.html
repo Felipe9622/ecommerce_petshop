@@ -35,6 +35,7 @@
                      <img src="{% static 'logos/logo1.png' %}"/>
                   </svg>
                </a>
+               
                <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
                   {% if user.is_authenticated %}<!--pode ver sendo somente tendo feito login-->
 
@@ -88,9 +89,15 @@
                   {% if user.is_authenticated %}<!--pode ver sendo somente tendo feito login-->
                   <a href ="/accounts/logout" class="button button-3d button-rounded button-black">Logout</a>
                   {% else %}<!--aparece somente se não efetuou o login-->
-                  <a href ="/accounts/register" class="button button-3d button-rounded button-yellow button-light">Novo Usuario</a>
-                  <a href ="/accounts/login" class="button button-3d button-rounded button-blue">Login</a>
-
+                  <a href ="/accounts/register" class="button button-3d button-rounded button-yellow button-light">
+                     <i class="icon-user-circle1"></i>Novo Usuario
+                  </a>
+                  <a href ="/accounts/login" class="button button-3d button-rounded button-blue"><i class="icon-line2-login"></i>Login</a>
+                  <button class="btn btn-outline-dark" type="submit">
+                  <i class="icon-line-shopping-bag"></i>
+                  Cart
+                  <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                  </button>
                   {% endif %}
                </div>
             </div>

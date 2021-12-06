@@ -37,7 +37,8 @@ def Ecommerce_Categoias_lista(request, product_id):
 #detalhes dos produtos
 def Detalhes_Produtos(request,id):
     data = Product.objects.get(id=id)
-    return render(request, 'e-commerce/product_detail.html', {'data': data})
+    related_products = Product.objects.filter(category=data.category).exclude(id=id)[:3]
+    return render(request, 'e-commerce/product_detail.html', {'data': data, 'related_products': related_products})
 
 
 #ecommerce end
