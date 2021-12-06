@@ -9,6 +9,7 @@ from tasks.views import DetailAndDelete, ListAndCreate
 
 urlpatterns = [
     path('', views.Pagina),
+    path('search', views.Pesquisa, name="search"),
     path('cadastro/', views.Cadastro, name="cadastro"),
     path('sucesso/', views.Sucesso, name="Sucesso"),
     path('login/', views.Login, name="login"),

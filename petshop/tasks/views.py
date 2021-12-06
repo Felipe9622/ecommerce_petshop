@@ -100,4 +100,8 @@ class DetailAndDelete(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
     serializer_class = TodoSerializers
 
-
+#barra de pesquisa
+def Pesquisa(request):
+    q=request.get['q']
+    data = Product.objects.filter(title__icontains=q).order_by('-id')
+    return render(request, 'tasks/search.html', {'data': data})
