@@ -7,18 +7,9 @@
 <html lang="en">
 
     <body>
-        <!-- Header-->
-        <header class="bg-dark py-5" style="background-image: url('{% static 'images/paisagem_ecommerce.jpg'%}');">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder" style="color: white;">Conheça nossos Produtos</h1>
-                </div>
-            </div>
-			
-        </header>
         <!-- Section-->
         <section class="py-3">
-			<h1 style="text-align: center;">Categoria de Produtos </h1>
+			<h1 style="text-align: center;">{{request.GET.q}} </h1>
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 					{% if data %}
@@ -43,7 +34,6 @@
 					{% endif %}
                 </div>
             </div>
-			
         </section>
     </body>
 {% include 'footer.html' %}
