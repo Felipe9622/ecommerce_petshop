@@ -102,6 +102,6 @@ class DetailAndDelete(generics.RetrieveUpdateDestroyAPIView):
 
 #barra de pesquisa
 def Pesquisa(request):
-    q=request.get['q']
+    q=request.GET['q']
     data = Product.objects.filter(title__icontains=q).order_by('-id')
     return render(request, 'tasks/search.html', {'data': data})

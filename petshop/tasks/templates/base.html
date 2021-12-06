@@ -38,13 +38,10 @@
                
                <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
                   {% if user.is_authenticated %}<!--pode ver sendo somente tendo feito login-->
+                  
                   <form class="col-12 col-lg-auto mb-1 mb-lg-3 me-lg-3" action="/search" style="margin: 20px;">
-                     <div class="input-group">
-                        <input  name="q" type="text" class="form-control" placeholder="search" />
-                        <div class="input-group-append">
-                        <button class="btn btn-dark" type="submit" id="button-addon1">search</button>
-                        </div>
-                     </div>
+                     <input name="q" type="text" class="form-control form-control-dark" placeholder="Search...">
+                     
                   </form>
                   
                   <li>
@@ -90,13 +87,12 @@
                         </svg>
                         Sobre Nós
                      </a>
-                     
                   </li>
                   
                </ul>
                <div class="text-end">
                   {% if user.is_authenticated %}<!--pode ver sendo somente tendo feito login-->
-                  <a href ="/accounts/logout" class="button button-3d button-rounded button-black">Logout</a>
+                  <a href ="/accounts/logout" class="button button-3d button-rounded button-black"><i class="icon-line2-logout"></i>Logout</a>
                   <button class="btn btn-outline-dark" style="background-color: white;" type="submit">
                   <i class="icon-line-shopping-bag"></i>
                   Sacola de pedidos
