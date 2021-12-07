@@ -4,7 +4,7 @@
 
 ## Status do projeto
 <h4 align="center"> 
-	🚧  Em construção...  🚧
+	🚧  Em CONSTRUÇÂO...  🚧
 </h4>
 
 ### Recursos
