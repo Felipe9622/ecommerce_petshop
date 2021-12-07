@@ -18,6 +18,17 @@
 http://felipe96.pythonanywhere.com/ 
 
 
+### 🛠 Linguagens Usadas
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Python]
+- [Django]
+- [Html5]
+- [CSS]
+- [JavaScript]
+- [Sqlite3]
+
 ### Pré-requisitos e como rodar a aplicação
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 
@@ -70,5 +81,4 @@ O servidor inciará na porta:8000 - acesse <http://127.0.0.1:8000/>
 ```
 
 ![DeepinScreenshot_select-area_20211207000832](https://user-images.githubusercontent.com/51293199/144959284-3ddb81cd-762b-4c11-81a8-bedcd0a2a9f8.png)
-
 
