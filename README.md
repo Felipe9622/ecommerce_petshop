@@ -21,32 +21,34 @@ http://felipe96.pythonanywhere.com/
 ### Pré-requisitos e como rodar a aplicação
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 
+``` bash
 [Django]
 
-![DeepinScreenshot_select-area_20211206235533](https://user-images.githubusercontent.com/51293199/144957896-f6956514-55ec-4239-81e4-dddc6682a677.png)
+$ pip3 install Django
 
 [Django-bootstrap-v5]
 
-![DeepinScreenshot_select-area_20211207000517](https://user-images.githubusercontent.com/51293199/144958807-0b4d03c9-3f44-4c60-86aa-e71fb7af75f7.png)
+$ pip3 install django-bootstrap-v5
 
 [Django-crispy-forms]
 
-![DeepinScreenshot_select-area_20211207000227](https://user-images.githubusercontent.com/51293199/144958579-f25ca2e2-3ce2-4615-9e65-e2038f559f03.png)
+$ pip3 install django-crispy-forms
 
 [Rest]
 
-![DeepinScreenshot_select-area_20211206233826](https://user-images.githubusercontent.com/51293199/144956690-b6f8e234-a429-4bd3-bc41-fdb65636cedc.png)
+$ pip3 install djangorestframework
+$ pip3 install markdown       # Markdown support for the browsable API.
+$ pip3 install django-filter  # Filtering support
 
 [Django Debug Toolbar]
 
-
-![DeepinScreenshot_select-area_20211206234817](https://user-images.githubusercontent.com/51293199/144957162-9696f1b5-b510-484c-9e84-7bf1f41265a2.png)
-
+$ pip3 install django-debug-toolbar
 
 [Jazzmin]
 
-![DeepinScreenshot_select-area_20211206235022](https://user-images.githubusercontent.com/51293199/144957226-91635c04-980a-4a71-a298-d88b7932bd58.png)
+$ pip3 install -U django-jazzmin
 
+```
 
 ### 🎲 Rodando o Back End (servidor)
 
