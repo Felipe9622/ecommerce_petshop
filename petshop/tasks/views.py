@@ -1,4 +1,5 @@
 
+from django.http.response import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from rest_framework import generics
 from ecommerce.models import Category, Product
@@ -38,6 +39,18 @@ def Ecommerce_Categoias_lista(request, product_id):
 def Detalhes_Produtos(request,id):
     product = Product.objects.get(id=id)
     return render(request, 'e-commerce/product_detail.html', {'data': product})
+
+#adicionar ao carrinho
+def add_to_cart(request):
+    cart_p = {}
+    cart_p[str(request.GET['id'])] = {
+        
+        'title': request.GET['title'],
+        'qty': request.GET['qty'],
+        'price': request.GET['price'],
+
+    }
+    return JsonResponse({'data': cart_p})
 
 #ecommerce end
 
@@ -103,3 +116,7 @@ def Pesquisa(request):
     q=request.GET['q']
     data = Product.objects.filter(title__icontains=q).order_by('-id')
     return render(request, 'tasks/search.html', {'data': data})
+
+
+
+
