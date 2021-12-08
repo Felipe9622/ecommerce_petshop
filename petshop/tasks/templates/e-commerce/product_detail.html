@@ -17,10 +17,15 @@
                   <h1 class="display-5 fw-bolder">{{data.title}}</h1>
                   <div class="fs-5 mb-5">
                      <span >R$ {{data.productattribute_set.first.price}}</span>
-                     <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                     <i class="bi-cart-fill me-1"></i>
-                     Add to cart
-                     </button>
+                  </div>
+                  <div class="input-group my-3" style="width:34%;">
+                     <input type="number" value="1" class="form-control product-qty-{{data.id}}" id="productQty" />
+                     <div class="input-group-append">
+                        <input type="hidden" class="product-image-{{data.id}}" value="{{data.productattribute_set.first.image}}" />
+                        <input type="hidden" class="product-id-{{data.id}}" value="{{data.id}}" />
+                        <input type="hidden" class="product-title-{{data.id}}" value="{{data.title}}" />
+                        <button class="btn btn-outline-dark flex-shrink-0" data-index="{{data.id}}" type="button" id="addToCartBtn"><i class="icon-line-shopping-cart"></i> Add to Cart</button>
+                     </div>
                   </div>
                   <p class="lead">{{data.detail }}</p>
                   <div class="tab-container">
@@ -43,10 +48,6 @@
                      </div>
 
                   </div>
-                  <div class="d-flex">
-                     <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-
-                  </div>
                </div>
             </div>
          </div>
@@ -54,5 +55,7 @@
 
    </body>
    {% include 'footer.html' %}
+<script src="{% static 'custom.js' %}"></script>
 </html>
+
 {% endblock %}
