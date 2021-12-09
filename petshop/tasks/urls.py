@@ -9,7 +9,7 @@ from tasks.views import DetailAndDelete, ListAndCreate
 
 urlpatterns = [
     path('', views.Pagina),
-    path('search', views.Pesquisa, name="search"),
+    path('search/', views.Pesquisa, name="search"),
     path('cadastro/', views.Cadastro, name="cadastro"),
     path('sucesso/', views.Sucesso, name="Sucesso"),
     path('login/', views.Login, name="login"),
@@ -20,6 +20,7 @@ urlpatterns = [
     path('produtos_detalhes/<int:id>', views.Detalhes_Produtos, name="produtos_detalhes"),
     path('dados/', ListAndCreate.as_view()),
     path('dados/<int:pk>/', DetailAndDelete.as_view()),
+    path('add-to-cart', views.add_to_cart, name="add_to_cart"),
 
 ]
 

@@ -1,4 +1,5 @@
 
+from django.http.response import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from rest_framework import generics
 from ecommerce.models import Category, Product
@@ -7,7 +8,6 @@ from .models import Task
 from .forms import AddData
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
-from django.contrib import messages
 
 
 #paginas sem usuario estar logado begin
@@ -29,16 +29,41 @@ def Ecommerce_Categorias(request):
 
 #lista de produtos
 def Ecommerce_Categoias_lista(request, product_id):
-    category = Category.objects.get(id=product_id) 
-    data = Product.objects.filter(category=category).order_by('-id')  # interage o banco Category com o banco Product, objects.filter pega todos os dados do banco 
+    category = Category.objects.get(id=product_id)
+    # interage o banco Category com o banco Product, objects.filter pega todos os dados do banco
+    data = Product.objects.filter(category=category).order_by('-id')
     return render(request, 'e-commerce/ecommerce_categorias_lista.html', {'data': data})
 
 #detalhes dos produtos
 def Detalhes_Produtos(request,id):
-    data = Product.objects.get(id=id)
-    related_products = Product.objects.filter(category=data.category).exclude(id=id)[:3]
-    return render(request, 'e-commerce/product_detail.html', {'data': data, 'related_products': related_products})
+    product = Product.objects.get(id=id)
+    return render(request, 'e-commerce/product_detail.html', {'data': product})
 
+# Add to cart
+
+
+# Add to cart
+def add_to_cart(request):
+	# del request.session['cartdata']
+	cart_p = {}
+	cart_p[str(request.GET['id'])] = {
+		'title': request.GET['title'],
+		'qty': request.GET['qty'],
+		'price': request.GET['price'],
+	}
+	if 'cartdata' in request.session:
+		if str(request.GET['id']) in request.session['cartdata']:
+			cart_data = request.session['cartdata']
+			cart_data[str(request.GET['id'])]['qty'] = int(cart_p[str(request.GET['id'])]['qty'])
+			cart_data.update(cart_data)
+			request.session['cartdata'] = cart_data
+		else:
+			cart_data = request.session['cartdata']
+			cart_data.update(cart_p)
+			request.session['cartdata'] = cart_data
+	else:
+		request.session['cartdata'] = cart_p
+	return JsonResponse({'data': request.session['cartdata'], 'totalitems': len(request.session['cartdata'])})
 
 
 #ecommerce end
@@ -102,6 +127,10 @@ class DetailAndDelete(generics.RetrieveUpdateDestroyAPIView):
 
 #barra de pesquisa
 def Pesquisa(request):
-    q=request.get['q']
+    q=request.GET['q']
     data = Product.objects.filter(title__icontains=q).order_by('-id')
     return render(request, 'tasks/search.html', {'data': data})
+
+
+
+
