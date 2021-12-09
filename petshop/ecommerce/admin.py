@@ -9,7 +9,8 @@ admin.site.register(Size)
 
 #Modelo do Produto
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'brand', 'size','status', 'is_featured','__str__', 'slug')
+    list_display = ('id', 'image', 'brand', 'size',
+                    'status', 'is_featured', '__str__')
     class meta:
         model = Product
     # precisa manter a , logo apos que colocar 'status' se tirar vai apresentar uma mensagem de erro
