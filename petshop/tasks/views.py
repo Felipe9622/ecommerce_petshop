@@ -40,7 +40,10 @@ def Detalhes_Produtos(request,id):
     product = Product.objects.get(id=id)
     return render(request, 'e-commerce/product_detail.html', {'data': product})
 
-# Add to cart
+
+# Pagina da sacola de pedidos
+def Cart_list(request):
+    return render(request, 'e-commerce/cart.html', {'cart_data': request.session['cartdata'], 'totalitems': len(request.session['cartdata'])})
 
 
 # Add to cart
@@ -48,7 +51,8 @@ def add_to_cart(request):
 	# del request.session['cartdata']
 	cart_p = {}
 	cart_p[str(request.GET['id'])] = {
-		'title': request.GET['title'],
+		#'image': request.GET['image'],
+        'title': request.GET['title'],
 		'qty': request.GET['qty'],
 		'price': request.GET['price'],
 	}

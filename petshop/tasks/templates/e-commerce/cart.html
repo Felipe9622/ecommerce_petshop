@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Loja-Categorias{% endblock  %}
+
+{% block content %}
+
+<html lang="en">
+   <body>
+<section id="content">
+			<div class="content-wrap">
+				<div class="container">
+
+					<table class="table cart mb-5">
+						<thead>
+							<tr>
+								<th class="cart-product-remove">&nbsp;</th>
+								<th class="cart-product-thumbnail">&nbsp;</th>
+								<th class="cart-product-name">Produto</th>
+								<th class="cart-product-price">Preço unitário</th>
+								<th class="cart-product-quantity">Quantidade</th>
+								<th class="cart-product-subtotal">Total</th>
+							</tr>
+						</thead>
+
+						<tbody>
+                            {% for product_id,item in cart_data.items  %}
+							<tr class="cart_item">
+								<td class="cart-product-remove">
+									<a href="#" class="remove" title="Remove this item"><i class="icon-trash2"></i></a>
+								</td>
+
+								<td class="cart-product-thumbnail">
+									<a href="#"><img width="50" height="50" src="media/{{item.image}}" alt="{{item.title}}"></a>
+								</td>
+
+								<td class="cart-product-name">
+									<a href="#">{{item.title}}</a>
+								</td>
+
+								<td class="cart-product-price">
+									<span class="amount">${{item.price}}</span>
+								</td>
+
+								<td class="cart-product-quantity">
+									<div class="quantity">
+										<input type="button" value="-" class="minus">
+										<input type="text" name="quantity" value="{{item.qty}}" class="qty">
+										<input type="button" value="+" class="plus">
+									</div>
+								</td>
+
+								<td class="cart-product-subtotal">
+									<span class="amount">$39.98</span>
+                                    <!--<span class="amount">$ {% widthratio item.price 1 item.qty %}</span>-->
+								</td>
+							</tr>
+                            {% endfor %}
+
+							<tr class="cart_item">
+								<td colspan="6">
+									<div class="row justify-content-between py-2 col-mb-30">
+										<div class="col-lg-auto ps-lg-0">
+											<div class="row">
+												<div class="col-md-8">
+													<input type="text" value="" class="sm-form-control text-center text-md-start" placeholder="Enter Coupon Code..">
+												</div>
+												<div class="col-md-4 mt-3 mt-md-0">
+													<a href="#" class="button button-3d button-black m-0">Apply Coupon</a>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-auto pe-lg-0">
+											<a href="#" class="button button-3d m-0">Update Cart</a>
+											<a href="shop.html" class="button button-3d mt-2 mt-sm-0 me-0">Proceed to Checkout</a>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+
+   </body>
+<script src="{% static 'js/custom.js' %}"></script>
+</html>
+
+{% endblock %}
