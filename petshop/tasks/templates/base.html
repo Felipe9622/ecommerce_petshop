@@ -89,14 +89,16 @@
                         Sobre Nós
                      </a>
                   </li>
+
                   <div class="text-end">
-                     <button class="btn btn-outline-dark" style="background-color: white; border-radius: 16px; margin-top:21px" type="submit">
-                        <i class="icon-line-shopping-bag"></i>
-                        <span class="badge bg-dark text-white ms-1 rounded-pill">{{request.session.cartdata|length}}</span>
-                     </button>
+                     <a class="nav-link text-white" href="{% url 'cart' %}" style="background-color: white; border-radius: 16px; margin-top:23px">
+                           <i class="icon-line-shopping-bag"style="color: black;"></i>
+                           <span class="badge bg-dark text-white ms-1 rounded-pill">{{request.session.cartdata|length}}</span>
+                           <!--request.session.cartdata|length mostra os pedidos adicionados na sacola-->
+                     </a>
                   </div>
-               </ul>
-               <div class="text-end" style="margin-top: 8px;">
+
+               <div class="text-end" style="margin-top: 17px;">
                   {% if user.is_authenticated %}<!--pode ver sendo somente tendo feito login-->
                   <a href ="/accounts/logout" class="button button-3d button-rounded button-black"><i class="icon-line2-logout"></i>Logout</a>
                   <button class="btn btn-outline-dark" style="background-color: white;" type="submit">
@@ -111,8 +113,6 @@
                   </a>
                   <a href ="/accounts/login" class="button button-3d button-rounded button-blue"><i class="icon-line2-login"></i>Login</a>
 
-                  
-                  
                   {% endif %}
                </div>
             </div>
@@ -143,5 +143,7 @@
    <script src="{% static "js/plugins.carousel.js" %}"></script>
    <script src="{% static "js/plugins.easing.js" %}"></script>
    <script src="{% static 'js/custom.js' %}"></script>
+   <script src="{% static 'js/plugins.quantity.js' %}"></script>
    <!-- JavaScripts end -->
 </html>
+

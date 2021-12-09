@@ -18,9 +18,10 @@
                   <div class="fs-5 mb-5">
                      <span >R$ {{data.productattribute_set.first.price}}</span>
                   </div>
-                  <div class="input-group my-3" style="width:40%;">
+                  <div class="input-group my-3" style="width:48%;">
                      <input type="number" value="1" class="form-control product-qty-{{data.id}}" id="productQty" />
                      <div class="input-group-append">
+                        <!--<input type="hidden" class="product-image-{{data.image}}" value="{{data.image}}" />-->
                         <input type="hidden" class="product-id-{{data.id}}" value="{{data.id}}" />
                         <input type="hidden" class="product-title-{{data.id}}" value="{{data.title}}" />
                         <input type="hidden" class="product-price-{{data.id}}" value="{{data.productattribute_set.first.price}}" />

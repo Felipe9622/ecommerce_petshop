@@ -20,7 +20,10 @@ urlpatterns = [
     path('produtos_detalhes/<int:id>', views.Detalhes_Produtos, name="produtos_detalhes"),
     path('dados/', ListAndCreate.as_view()),
     path('dados/<int:pk>/', DetailAndDelete.as_view()),
-    path('add-to-cart', views.add_to_cart, name="add_to_cart"),
+    path('add-to-cart/', views.add_to_cart, name="add_to_cart"),
+    
+    #pagina para envio de pedidos para a sacola
+    path('cart', views.Cart_list, name="cart"),
 
 ]
 
