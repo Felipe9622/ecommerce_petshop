@@ -92,16 +92,20 @@
 
                   <div class="text-end">
                      <a class="nav-link text-white" href="{% url 'cart' %}" style="background-color: white; border-radius: 16px; margin-top:23px">
-                           <i class="icon-line-shopping-bag"style="color: black;"></i>
-                           <span class="badge bg-dark text-white ms-1 rounded-pill">{{request.session.cartdata|length}}</span>
-                           <!--request.session.cartdata|length mostra os pedidos adicionados na sacola-->
+                        <i class="icon-line-shopping-bag"style="color: black;"></i>
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">{{request.session.cartdata|length}}</span>
                      </a>
                   </div>
 
                <div class="text-end" style="margin-top: 17px;">
                   {% if user.is_authenticated %}<!--pode ver sendo somente tendo feito login-->
                   <a href ="/accounts/logout" class="button button-3d button-rounded button-black"><i class="icon-line2-logout"></i>Logout</a>
-
+                  <button class="btn btn-outline-dark" style="background-color: white;" type="submit">
+                  <i class="icon-line-shopping-bag"></i>
+                  Sacola de pedidos
+                  <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                  </button>
+                  
                   {% else %}<!--aparece somente se não efetuou o login-->
                   <a href ="/accounts/register" class="button button-3d button-rounded button-yellow button-light">
                      <i class="icon-user-circle1"></i>Novo Usuario
