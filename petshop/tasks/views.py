@@ -39,10 +39,9 @@ def Detalhes_Produtos(request,id):
     product = Product.objects.get(id=id)
     return render(request, 'e-commerce/product_detail.html', {'data': product})
 
-# Add to cart
 
 
-# Add to cart
+# adicione pedidos a lista de compras
 def add_to_cart(request):
 	# del request.session['cartdata']
 	cart_p = {}
