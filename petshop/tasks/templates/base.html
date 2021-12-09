@@ -89,26 +89,23 @@
                         Sobre Nós
                      </a>
                   </li>
-                  
+                  <div class="text-end">
+                     <button class="btn btn-outline-dark" style="background-color: white; border-radius: 16px; margin-top:21px" type="submit">
+                        <i class="icon-line-shopping-bag"></i>
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">{{request.session.cartdata|length}}</span>
+                     </button>
+                  </div>
                </ul>
-               <div class="text-end">
+               <div class="text-end" style="margin-top: 8px;">
                   {% if user.is_authenticated %}<!--pode ver sendo somente tendo feito login-->
                   <a href ="/accounts/logout" class="button button-3d button-rounded button-black"><i class="icon-line2-logout"></i>Logout</a>
-                  <button class="btn btn-outline-dark" style="background-color: white;" type="submit">
-                  <i class="icon-line-shopping-bag"></i>
 
-                  <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                  </button>
-                  
                   {% else %}<!--aparece somente se não efetuou o login-->
                   <a href ="/accounts/register" class="button button-3d button-rounded button-yellow button-light">
                      <i class="icon-user-circle1"></i>Novo Usuario
                   </a>
                   <a href ="/accounts/login" class="button button-3d button-rounded button-blue"><i class="icon-line2-login"></i>Login</a>
-                  <button class="btn btn-outline-dark" style="background-color: white;" type="submit">
-                     <i class="icon-line-shopping-bag"></i>
-                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                  </button>
+
                   
                   
                   {% endif %}

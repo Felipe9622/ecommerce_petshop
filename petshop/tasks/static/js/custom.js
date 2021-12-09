@@ -6,7 +6,7 @@ $(document).ready(function(){
 		var _qty=$(".product-qty-"+_index).val();
 		var _productId=$(".product-id-"+_index).val();
 		var _productTitle=$(".product-title-"+_index).val();
-		var _productPrice=$(".product-price-"+_index).text();
+		var _productPrice=$(".product-price-"+_index).val();
 		// Ajax
 		$.ajax({
 			url:'/add-to-cart',

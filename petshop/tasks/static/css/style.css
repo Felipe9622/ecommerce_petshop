@@ -9142,7 +9142,7 @@ body:not(.device-touch) .button {
 -----------------------------------------------------------------*/
 
 .button.button-3d {
-	border-radius: 3px;
+	border-radius: 16px;
 	box-shadow: inset 0 -3px 0 rgba(0,0,0,0.15);
 	-webkit-transition: none;
 	-o-transition: none;
