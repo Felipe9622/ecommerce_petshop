@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.html import mark_safe
 
 
 
@@ -47,9 +48,9 @@ class Size(models.Model):
 #Modelo do Produto
 class Product(models.Model):
     title = models.CharField(max_length=200, verbose_name='titulo do produto')
+    #forem adicionadas ficaram guardadas na pasta 
     # upload_to ciria uma pasta e todas as fotos que
     image = models.ImageField(upload_to='dadosProduct/')
-    #forem adicionadas ficaram guardadas na pasta 
     slug = models.CharField(max_length=400)
     detail = models.TextField(verbose_name='detalhes')
     specs = models.TextField(verbose_name='especificações')
@@ -76,6 +77,8 @@ class ProductAttribute(models.Model):
     size = models.ForeignKey(
         Size, on_delete=models.CASCADE, verbose_name='Tamanho')
     price = models.CharField(max_length=100, verbose_name='Preço')
+    # upload_to ciria uma pasta e todas as fotos que
+    image = models.ImageField(upload_to='dadosProduct/')
 
     class Meta:  # verbose_name_plural substitui o nome no banco de dados na pagina do admin
         verbose_name_plural = '5.Atributos do Produto'
@@ -83,3 +86,5 @@ class ProductAttribute(models.Model):
     def __str__(self):
         return self.product.title
     
+    def image_tag(self):
+        return mark_safe('<img src="%s" width="80" height="80"/>' % (self.image.url))

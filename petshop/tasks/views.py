@@ -51,7 +51,7 @@ def add_to_cart(request):
 	# del request.session['cartdata']
 	cart_p = {}
 	cart_p[str(request.GET['id'])] = {
-		#'image': request.GET['image'],
+		'image': request.GET['image'],
         'title': request.GET['title'],
 		'qty': request.GET['qty'],
 		'price': request.GET['price'],
