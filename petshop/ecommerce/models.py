@@ -3,6 +3,7 @@ from django.utils.html import mark_safe
 
 
 
+
 #Categoria
 class Category(models.Model):
     title = models.CharField(max_length=100,
