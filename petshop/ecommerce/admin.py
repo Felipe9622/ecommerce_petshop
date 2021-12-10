@@ -9,8 +9,7 @@ admin.site.register(Size)
 
 #Modelo do Produto
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'image', 'brand', 'size',
-                    'status', 'is_featured', '__str__')
+    list_display = ('id',  'brand', 'size','status', 'is_featured', '__str__')
     class meta:
         model = Product
     # precisa manter a , logo apos que colocar 'status' se tirar vai apresentar uma mensagem de erro
@@ -20,5 +19,5 @@ admin.site.register(Product,ProductAdmin)
 
 # Atributos do Produto
 class ProductAttributeAdmin(admin.ModelAdmin):
-    list_display=('id', 'product', 'price', 'size' )
+    list_display = ('id', 'image_tag','product', 'price', 'size')
 admin.site.register(ProductAttribute, ProductAttributeAdmin)

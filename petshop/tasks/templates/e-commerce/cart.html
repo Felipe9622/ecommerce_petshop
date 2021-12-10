@@ -30,7 +30,7 @@
 								</td>
 
 								<td class="cart-product-thumbnail">
-									<a href="#"><img width="64" height="64" src="images/shop/thumbs/small/dress-3.jpg" alt="Pink Printed Dress"></a>
+									<a href="/loja-produtos/{{item.title|slugify}}/{{product.id}}"><img width="80" height="80" src=/media/{{item.image}} alt="Pink Printed Dress"></a>
 								</td>
 
 								<td class="cart-product-name">
@@ -50,7 +50,7 @@
 								</td>
 
 								<td class="cart-product-subtotal">
-									<span class="amount">$39.98</span>
+									<span class="amount">${% widthratio item.price 1 item.qty %}</span>
 								</td>
 							</tr>
                             {% endfor %}

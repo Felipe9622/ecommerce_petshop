@@ -62,6 +62,10 @@
                      </a>
                   </li>
                   {% else %}
+                  <form class="col-12 col-lg-auto mb-1 mb-lg-3 me-lg-3" action="/search" style="margin: 20px;">
+                     <input name="q" type="text" class="form-control form-control-dark" placeholder="Search...">
+                     
+                  </form>
                   <li>
                      <a href="/" class="nav-link text-white">
                         <svg class="bi d-block mx-auto mb-1" width="24" height="24">
@@ -89,7 +93,7 @@
                         Sobre Nós
                      </a>
                   </li>
-
+                  <!--botão da sacola dos pedidos salvos -->
                   <div class="text-end">
                      <a class="nav-link text-white" href="{% url 'cart' %}" style="background-color: white; border-radius: 16px; margin-top:23px">
                         <i class="icon-line-shopping-bag"style="color: black;"></i>

@@ -12,7 +12,9 @@
       <section class="py-5">
          <div class="container px-4 px-lg-5 my-5">
             <div class="row gx-4 gx-lg-5 align-items-center">
-               <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0"  src="/media/{{data.image}}" alt="{{data.title}}" /></div>
+
+               <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="/media/{{data.productattribute_set.first.image}}" alt="{{data.title}}" /></div>
+
                <div class="col-md-6">
                   <h1 class="display-5 fw-bolder">{{data.title}}</h1>
                   <div class="fs-5 mb-5">
@@ -21,7 +23,7 @@
                   <div class="input-group my-3" style="width:48%;">
                      <input type="number" value="1" class="form-control product-qty-{{data.id}}" id="productQty" />
                      <div class="input-group-append">
-                        <!--<input type="hidden" class="product-image-{{data.image}}" value="{{data.image}}" />-->
+                        <input type="hidden" class="product-image-{{data.id}}" value="{{data.productattribute_set.first.image}}" />
                         <input type="hidden" class="product-id-{{data.id}}" value="{{data.id}}" />
                         <input type="hidden" class="product-title-{{data.id}}" value="{{data.title}}" />
                         <input type="hidden" class="product-price-{{data.id}}" value="{{data.productattribute_set.first.price}}" />

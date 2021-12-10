@@ -45,21 +45,24 @@ def Cart_list(request):
 
 
 
-# adicione pedidos a lista de compras
+# estrutura para comando de adicionar pedidos a sacola
 def add_to_cart(request):
 	# del request.session['cartdata']
 	cart_p = {}
+    #quando requerir o id solicitados que ele pegue dados especificos do id em que selecionou 
+    #como image,title,qty e price 
 	cart_p[str(request.GET['id'])] = {
-		#'image': request.GET['image'],
+		'image': request.GET['image'],
         'title': request.GET['title'],
 		'qty': request.GET['qty'],
 		'price': request.GET['price'],
 	}
 	if 'cartdata' in request.session:
+        #se o requerimento for um id valido vai chamar a variavel cartdata
 		if str(request.GET['id']) in request.session['cartdata']:
 			cart_data = request.session['cartdata']
 			cart_data[str(request.GET['id'])]['qty'] = int(cart_p[str(request.GET['id'])]['qty'])
-			cart_data.update(cart_data)
+			cart_data.update(cart_data)# adiciona o pedido a lista de desejos 
 			request.session['cartdata'] = cart_data
 		else:
 			cart_data = request.session['cartdata']

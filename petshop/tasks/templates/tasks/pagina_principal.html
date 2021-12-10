@@ -39,11 +39,12 @@
                <div class="col mb-5">
                   <div class="card h-100">
                      <!-- Product image-->
-                     <img class="card-img-top" src="/media/{{product.image}}" alt="{{product.title}}" />
+                     <img class="card-img-top" src="/media/{{product.productattribute_set.first.image}}" alt="{{product.title}}" />
                      <!-- Product details-->
                      <div class="card-body p-4">
                         <div class="text-center">
                            <h5 class="fw-bolder">{{product.title}}</h5>
+                           <span >R$ {{product.productattribute_set.first.price}}</span>
                         </div>
                      </div>
                      <!-- Product actions-->
