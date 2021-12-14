@@ -17,7 +17,7 @@
 								<th class="cart-product-thumbnail">&nbsp;</th>
 								<th class="cart-product-name">Product</th>
 								<th class="cart-product-price">Unit Price</th>
-								<th class="cart-product-quantity">Quantity</th>
+								<th class="cart-product-quantity">Qty</th>
 								<th class="cart-product-subtotal">Total</th>
 							</tr>
 						</thead>
@@ -50,7 +50,7 @@
 								</td>
 
 								<td class="cart-product-subtotal">
-									<span class="amount">${% widthratio item.price 1 item.qty %}</span>
+									<span class="amount">$ {% widthratio item.price 1 item.qty %}</span>
 								</td>
 							</tr>
                             {% endfor %}

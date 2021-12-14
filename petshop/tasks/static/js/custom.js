@@ -7,7 +7,7 @@ $(document).ready(function(){
 		var _productId=$(".product-id-"+_index).val();
 		var _productImage=$(".product-image-"+_index).val();
 		var _productTitle=$(".product-title-"+_index).val();
-		var _productPrice=$(".product-price-"+_index).val();
+		var _productPrice=$(".product-price-"+_index).text();
 		// Ajax
 		$.ajax({
 			url:'/add-to-cart',
