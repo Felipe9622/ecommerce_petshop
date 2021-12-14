@@ -40,12 +40,6 @@ def Detalhes_Produtos(request,id):
     product = Product.objects.get(id=id)
     return render(request, 'e-commerce/product_detail.html', {'data': product})
 
-
-# Pagina da sacola de pedidos
-def Cart_list(request):
-    return render(request, 'e-commerce/cart.html', {'cart_data': request.session['cartdata'], 'totalitems': len(request.session['cartdata'])})
-
-
 # estrutura para comando de adicionar pedidos a sacola
 def add_to_cart(request):
 	# del request.session['cartdata']
@@ -62,8 +56,9 @@ def add_to_cart(request):
         #se o requerimento for um id valido vai chamar a variavel cartdata
 		if str(request.GET['id']) in request.session['cartdata']:
 			cart_data = request.session['cartdata']
-			cart_data[str(request.GET['id'])]['qty'] = int(cart_p[str(request.GET['id'])]['qty'])
-			cart_data.update(cart_data)# adiciona o pedido a lista de desejos 
+			cart_data[str(request.GET['id'])]['qty'] = int(
+			    cart_p[str(request.GET['id'])]['qty'])
+			cart_data.update(cart_data)
 			request.session['cartdata'] = cart_data
 		else:
 			cart_data = request.session['cartdata']
@@ -73,6 +68,13 @@ def add_to_cart(request):
 		request.session['cartdata'] = cart_p
 	return JsonResponse({'data': request.session['cartdata'], 'totalitems': len(request.session['cartdata'])})
 
+
+# Pagina da sacola de pedidos
+def Cart_list(request):
+    total_amt = 0
+    for p_id, item in request.session['cartdata'].items():
+        total_amt += int(item['qty'])*float(item['price'])
+    return render(request, 'e-commerce/cart.html', {'cart_data': request.session['cartdata'], 'totalitems': len(request.session['cartdata']), 'total_amt': total_amt})
 #ecommerce end
 
 #paginas sem usuario estar logado end

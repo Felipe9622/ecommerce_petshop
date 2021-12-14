@@ -9,16 +9,17 @@
 <section id="content">
 			<div class="content-wrap">
 				<div class="container">
-
+					<h3>total de produtos({{totalitems}})</h3>
 					<table class="table cart mb-5">
 						<thead>
 							<tr>
 								<th class="cart-product-remove">&nbsp;</th>
 								<th class="cart-product-thumbnail">&nbsp;</th>
-								<th class="cart-product-name">Product</th>
-								<th class="cart-product-price">Unit Price</th>
-								<th class="cart-product-quantity">Quantity</th>
-								<th class="cart-product-subtotal">Total</th>
+								<th class="cart-product-name">Produto</th>
+								<th class="cart-product-price">Preço por unidade</th>
+								<th class="cart-product-quantity">Quantidade</th>
+								<th class="cart-product-subtotal">Soma das unidades</th>
+								
 							</tr>
 						</thead>
 
@@ -30,15 +31,16 @@
 								</td>
 
 								<td class="cart-product-thumbnail">
-									<a href="/loja-produtos/{{item.title}}/{{product.id}}"><img width="80" height="80" src=/media/{{item.image}} alt="Pink Printed Dress"></a>
+									<a href="/loja-produtos/{{item.title|slugify}}/{{product.id}}"><img width="80" height="80" src=/media/{{item.image}} alt="Pink Printed Dress"></a>
 								</td>
 
 								<td class="cart-product-name">
-									<a href="#">{{item.title}}</a>
+									<a href="/produtos_detalhes/{{product.id}}">{{item.title}}</a>
 								</td>
 
 								<td class="cart-product-price">
 									<span class="amount">${{item.price}}</span>
+
 								</td>
 
 								<td class="cart-product-quantity">
@@ -54,20 +56,10 @@
 								</td>
 							</tr>
                             {% endfor %}
-
 							<tr class="cart_item">
 								<td colspan="6">
 									<div class="row justify-content-between py-2 col-mb-30">
-										<div class="col-lg-auto ps-lg-0">
-											<div class="row">
-												<div class="col-md-8">
-													<input type="text" value="" class="sm-form-control text-center text-md-start" placeholder="Enter Coupon Code..">
-												</div>
-												<div class="col-md-4 mt-3 mt-md-0">
-													<a href="#" class="button button-3d button-black m-0">Apply Coupon</a>
-												</div>
-											</div>
-										</div>
+
 										<div class="col-lg-auto pe-lg-0">
 											<a href="#" class="button button-3d m-0">Update Cart</a>
 											<a href="shop.html" class="button button-3d mt-2 mt-sm-0 me-0">Proceed to Checkout</a>
@@ -77,12 +69,41 @@
 							</tr>
 						</tbody>
 					</table>
+					<div class="col-lg-6">
+							<h4>Valores calculados:</h4>
+
+							<div class="table-responsive">
+								<table class="table cart cart-totals">
+									<tbody>
+										<tr class="cart_item">
+											<td class="cart-product-name">
+												<strong>Soma de todos os produtos</strong>
+											</td>
+
+											<td class="cart-product-name">
+												<span class="amount">${{total_amt}}</span>
+											</td>
+										</tr>
+										<tr class="cart_item">
+											<td class="cart-product-name">
+												<strong>Valor total a pagar</strong>
+											</td>
+
+											<td class="cart-product-name">
+												<span class="amount color lead"><strong>${{total_amt}}</strong></span>
+											</td>
+										</tr>
+									</tbody>
+
+								</table>
+							</div>
+						</div>
 				</div>
 			</div>
 		</section>
 
    </body>
-<script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static "js/plugins.min_2.js" %}"></script>
 </html>
 
 {% endblock %}
