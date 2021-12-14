@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from rest_framework import generics
 from ecommerce.models import Category, Product
 from tasks.serializer import TodoSerializers
+from django.template.loader import render_to_string
 from .models import Task
 from .forms import AddData
 from django.contrib.auth.decorators import login_required
@@ -39,11 +40,6 @@ def Detalhes_Produtos(request,id):
     product = Product.objects.get(id=id)
     return render(request, 'e-commerce/product_detail.html', {'data': product})
 
-# Pagina da sacola de pedidos
-def Cart_list(request):
-    return render(request, 'e-commerce/cart.html', {'cart_data': request.session['cartdata'], 'totalitems': len(request.session['cartdata'])})
-
-
 
 # estrutura para comando de adicionar pedidos a sacola
 def add_to_cart(request):
@@ -61,8 +57,9 @@ def add_to_cart(request):
         #se o requerimento for um id valido vai chamar a variavel cartdata
 		if str(request.GET['id']) in request.session['cartdata']:
 			cart_data = request.session['cartdata']
-			cart_data[str(request.GET['id'])]['qty'] = int(cart_p[str(request.GET['id'])]['qty'])
-			cart_data.update(cart_data)# adiciona o pedido a lista de desejos 
+			cart_data[str(request.GET['id'])]['qty'] = int(
+			    cart_p[str(request.GET['id'])]['qty'])
+			cart_data.update(cart_data)
 			request.session['cartdata'] = cart_data
 		else:
 			cart_data = request.session['cartdata']
@@ -71,6 +68,32 @@ def add_to_cart(request):
 	else:
 		request.session['cartdata'] = cart_p
 	return JsonResponse({'data': request.session['cartdata'], 'totalitems': len(request.session['cartdata'])})
+
+
+
+# Pagina da sacola de pedidos
+#total_amt faz a soma de todos os produtos selecionados no carrinho 
+def Cart_list(request):
+    total_amt = 0
+    for p_id, item in request.session['cartdata'].items():
+        total_amt += int(item['qty'])*float(item['price'])
+    return render(request, 'e-commerce/cart.html', {'cart_data': request.session['cartdata'], 'totalitems': len(request.session['cartdata']), 'total_amt': total_amt})
+
+
+#deletar item da Pagina da sacola de pedidos
+def delete_cart_item(request):
+	p_id = str(request.GET['id'])
+	if 'cartdata' in request.session:
+		if p_id in request.session['cartdata']:
+			cart_data = request.session['cartdata']
+			del request.session['cartdata'][p_id]
+			request.session['cartdata'] = cart_data
+	total_amt = 0
+	for p_id, item in request.session['cartdata'].items():
+		total_amt += int(item['qty'])*float(item['price'])
+	t = render_to_string('ajax/cart_list.html', {'cart_data': request.session['cartdata'], 'totalitems': len(
+	    request.session['cartdata']), 'total_amt': total_amt})
+	return JsonResponse({'data': t, 'totalitems': len(request.session['cartdata'])})
 
 
 #ecommerce end

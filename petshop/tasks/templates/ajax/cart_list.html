@@ -1,12 +1,4 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block title %}Loja-Categorias{% endblock  %}
-
-{% block content %}
-
-<html lang="en">
-   <body>
-<section class="content" id = "cartList">
+<section id="content">
 			<div class="content-wrap">
 				<div class="container">
 					<h3>total de produtos({{totalitems}})</h3>
@@ -15,7 +7,6 @@
 							<tr>
 								<th class="cart-product-remove delete-item" data-item="{{product.id}}" >&nbsp;</th>
 								<th class="cart-product-thumbnail">&nbsp;</th>
-
 								<th class="cart-product-name">Produto</th>
 								<th class="cart-product-price">Preço por unidade</th>
 								<th class="cart-product-quantity">Quantidade</th>
@@ -53,7 +44,7 @@
 								</td>
 
 								<td class="cart-product-subtotal">
-
+									<!--pega o valor do produto e com 1(soma) com a quantidade de produtos-->
 									<span class="amount">$ {% widthratio item.price 1 item.qty %}</span>
 								</td>
 							</tr>
@@ -103,9 +94,3 @@
 				</div>
 			</div>
 		</section>
-
-   </body>
-    <script src="{% static "js/plugins.min_2.js" %}"></script>
-</html>
-
-{% endblock %}
