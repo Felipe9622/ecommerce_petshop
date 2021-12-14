@@ -1,12 +1,4 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block title %}Loja-Categorias{% endblock  %}
-
-{% block content %}
-
-<html lang="en">
-   <body>
-<section class="content" id = "cartList">
+<section id="content">
 			<div class="content-wrap">
 				<div class="container">
 					<h3>total de produtos({{totalitems}})</h3>
@@ -102,9 +94,3 @@
 				</div>
 			</div>
 		</section>
-
-   </body>
-    <script src="{% static "js/plugins.min_2.js" %}"></script>
-</html>
-
-{% endblock %}

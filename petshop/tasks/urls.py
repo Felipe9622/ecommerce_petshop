@@ -17,12 +17,12 @@ urlpatterns = [
     path('sobre_nos', views.Sobre, name="sobre_nos"),
     path('loja', views.Ecommerce_Categorias, name="loja"),
     path('loja-produtos/<int:product_id>',views.Ecommerce_Categoias_lista, name="loja-produtos"),
-    path('produtos_detalhes/<int:id>/',
-         views.Detalhes_Produtos, name="produtos_detalhes"),
+    path('produtos_detalhes/<int:id>/',views.Detalhes_Produtos, name="produtos_detalhes"),
     path('dados', ListAndCreate.as_view()),
     path('dados/<int:pk>', DetailAndDelete.as_view()),
     path('add-to-cart', views.add_to_cart, name="add_to_cart"),
     path('cart', views.Cart_list, name="cart"),
+    path('delete-from-cart', views.delete_cart_item, name="delete-from-cart"),
 
 ]
 
