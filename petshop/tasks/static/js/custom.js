@@ -31,7 +31,7 @@ $(document).ready(function(){
 	});
 	// End
 
-	// Delete item from cart
+	// Delete item no carrinho de compras
 	$(document).on('click','.delete-item',function(){
 		var _pId=$(this).attr('data-item');
 		var _vm=$(this);
