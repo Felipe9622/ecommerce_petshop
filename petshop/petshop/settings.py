@@ -34,8 +34,13 @@ INSTALLED_APPS = [
     'accounts',
     'rest_framework',
     #debug_toolbar#
-    "debug_toolbar",  
+    "debug_toolbar",
+    'django_extensions',
 ]
+
+
+
+
 #-------------------debug_toolbar----------------------#
 INTERNAL_IPS = [
     # ...
@@ -149,6 +154,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 LOGIN_REDIRECT_URL = '/usuario'
 LOGOUT_REDIRECT_URL = '/accounts/login'
+
 
 
 JAZZMIN_SETTINGS={

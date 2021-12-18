@@ -40,6 +40,7 @@ def Detalhes_Produtos(request,id):
     product = Product.objects.get(id=id)
     return render(request, 'e-commerce/product_detail.html', {'data': product})
 
+
 # estrutura para comando de adicionar pedidos a sacola
 def add_to_cart(request):
 	# del request.session['cartdata']
@@ -69,6 +70,7 @@ def add_to_cart(request):
 	return JsonResponse({'data': request.session['cartdata'], 'totalitems': len(request.session['cartdata'])})
 
 
+
 # Pagina da sacola de pedidos
 #total_amt faz a soma de todos os produtos selecionados no carrinho 
 def Cart_list(request):
@@ -92,6 +94,7 @@ def delete_cart_item(request):
 	t = render_to_string('ajax/cart_list.html', {'cart_data': request.session['cartdata'], 'totalitems': len(
 	    request.session['cartdata']), 'total_amt': total_amt})
 	return JsonResponse({'data': t, 'totalitems': len(request.session['cartdata'])})
+
 
 #ecommerce end
 
