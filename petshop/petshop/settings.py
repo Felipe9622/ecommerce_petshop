@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     'accounts',
     'rest_framework',
     #debug_toolbar#
-    "debug_toolbar",  
+    "debug_toolbar",
+    'django_extensions',
 ]
 
 
