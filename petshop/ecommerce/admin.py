@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Category, Brand, ProductAttribute, Size, Product
 
 
+
 admin.site.register(Category)
 admin.site.register(Brand)
 admin.site.register(Size)
@@ -21,3 +22,5 @@ admin.site.register(Product,ProductAdmin)
 class ProductAttributeAdmin(admin.ModelAdmin):
     list_display = ('id', 'image_tag','product', 'price', 'size')
 admin.site.register(ProductAttribute, ProductAttributeAdmin)
+
+
