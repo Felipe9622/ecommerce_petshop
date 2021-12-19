@@ -7,6 +7,7 @@ from tasks.views import DetailAndDelete, ListAndCreate
 
 
 
+
 urlpatterns = [
     path('', views.Pagina),
     path('search', views.Pesquisa, name="search"),
