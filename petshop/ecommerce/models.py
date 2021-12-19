@@ -66,6 +66,9 @@ class Product(models.Model):
         default=False, verbose_name='visivel na pagina principal')
     class Meta:  # verbose_name_plural substitui o nome no banco de dados na pagina do admin
         verbose_name_plural = '2.Produtos'
+    
+    class Meta:
+        db_table = 'product'
 
     def __str__(self):
         return self.title

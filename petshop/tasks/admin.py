@@ -1,8 +1,11 @@
 from django.contrib import admin
+
+
 from .models import Task
 # para fazer a importação e extração precisa da biblioteca ImportExportModelAdmin
 from import_export.admin import ImportExportModelAdmin
 from tasks.models import Member, Task
+
 
 #banco é novo então precisa registralo
 @admin.register(Member)
@@ -18,3 +21,4 @@ class TaskAdmin(ImportExportModelAdmin):
                     "animal_race", "problem", "appointment_date", "hours", "done", "user",)
     pass
     admin.register(Task)
+

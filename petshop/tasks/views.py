@@ -12,6 +12,7 @@ from django.core.paginator import Paginator
 
 from django.http import HttpResponse
 from tasks.resources import MemberResource,TaskResource
+from ecommerce.resources import ProductResource
 
 #paginas sem usuario estar logado begin
 def Pagina(request):
@@ -180,6 +181,19 @@ def export(request):
 def export(request):
     task_resource = TaskResource()
     dataset = task_resource.export()
+    #response = HttpResponse(dataset.csv, content_type='text/csv')
+    #response['Content-Disposition'] = 'attachment; filename="member.csv"'
+    #response = HttpResponse(dataset.json, content_type='application/json')
+    #response['Content-Disposition'] = 'attachment; filename="persons.json"'
+    response = HttpResponse(
+        dataset.xls, content_type='application/vnd.ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="persons.xls"'
+    return response
+
+
+def export(request):
+    product_resource = ProductResource()
+    dataset = product_resource.export()
     #response = HttpResponse(dataset.csv, content_type='text/csv')
     #response['Content-Disposition'] = 'attachment; filename="member.csv"'
     #response = HttpResponse(dataset.json, content_type='application/json')
