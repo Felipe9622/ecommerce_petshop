@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Category, Brand, ProductAttribute, Size, Product
-from import_export.admin import ImportExportModelAdmin
-from ecommerce.models import Product
+
+
 
 admin.site.register(Category)
 admin.site.register(Brand)
@@ -16,16 +16,7 @@ class ProductAdmin(admin.ModelAdmin):
     # precisa manter a , logo apos que colocar 'status' se tirar vai apresentar uma mensagem de erro
     list_editable = ('status', 'is_featured')
 
-
-@admin.register(Product)
-class Product1Admin(ImportExportModelAdmin):
-    list_display = ("title", "image", "slug",
-                    "detail", "specs", "category", "brand", "size", "status ",)
-    pass
-    admin.register(Product)
-
-
-
+admin.site.register(Product)
 admin.site.register(ProductAdmin)
 
 
