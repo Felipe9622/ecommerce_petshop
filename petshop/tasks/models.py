@@ -84,6 +84,9 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        db_table = "Task"
+
     class Meta:  # substitui o nome no banco de dados na pagina do admin
         verbose_name_plural='Cadastros dos Usuarios'
 

@@ -10,6 +10,8 @@ from .forms import AddData
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 
+from django.http import HttpResponse
+from tasks.resources import TaskResources
 
 #paginas sem usuario estar logado begin
 def Pagina(request):
@@ -163,4 +165,10 @@ def Pesquisa(request):
 
 
 
-
+#importação e exportação de arquivos 
+def export(request):
+    tasks_resource = TaskResources()
+    dataset = tasks_resource.export()
+    response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="persons.xls"'
+    return response
