@@ -17,7 +17,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = ('status', 'is_featured')
 
 admin.site.register(Product)
-admin.site.register(ProductAdmin)
+
 
 
 # Atributos do Produto
