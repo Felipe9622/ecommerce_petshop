@@ -13,7 +13,7 @@ from django.core.paginator import Paginator
 from django.http import HttpResponse
 from tasks.resources import TaskResources
 
-#paginas sem usuario estar logado begin
+#paginas que usuario acessa sem estar logado logado begin
 def Pagina(request):
     data = Product.objects.filter(is_featured=True).order_by('-id')
     return render(request, 'tasks/pagina_principal.html', {'data': data})
