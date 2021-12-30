@@ -2,19 +2,15 @@
 {% load static %}
 {% block title %}Detalhes do Produto{% endblock  %}
 
-{% block content %}
 
+{% block content %}
 <html lang="en">
    <body>
-      <!-- Navigation-->
-
-      <!-- Product section-->
+      <!-- detalhes do produto Begin-->
       <section class="py-5">
          <div class="container px-4 px-lg-5 my-5">
             <div class="row gx-4 gx-lg-5 align-items-center">
-
                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="/media/{{data.productattribute_set.first.image}}" alt="{{data.title}}" /></div>
-
                <div class="col-md-6">
                   <h1 class="display-5 fw-bolder">{{data.title}}</h1>
                   <div class="fs-5 mb-5">
@@ -33,7 +29,6 @@
                   <p class="lead">{{data.detail }}</p>
                   <div class="tab-container">
                      <div class="tab-content clearfix ui-tabs-panel ui-corner-bottom ui-widget-content" id="tabs-2" aria-labelledby="ui-id-2" role="tabpanel" aria-hidden="false" style="display: block;">
-
                         <table class="table table-striped table-bordered">
                            <tbody>
                               <tr>
@@ -44,21 +39,20 @@
                                  <td>Marca</td>
                                  <td>{{data.brand.title}}</td>
                               </tr>
-
                            </tbody>
                         </table>
-                       
                      </div>
-
                   </div>
                </div>
             </div>
          </div>
       </section>
-
+      <!-- detalhes do produto End-->
    </body>
-   {% include 'footer.html' %}
-<script src="{% static 'js/custom.js' %}"></script>
-</html>
 
+   <!--footer atalho Begin-->
+   {% include 'footer.html' %}
+   <!--footer atalho End-->
+   <script src="{% static 'js/custom.js' %}"></script>
+</html>
 {% endblock %}

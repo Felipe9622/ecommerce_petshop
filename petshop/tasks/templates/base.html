@@ -1,19 +1,20 @@
 {% load static %}
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
-   <!--head begin-->
+   <!--head Begin-->
    <head>
       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
       <meta name="author" content="SemiColonWeb" />
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <!-- Favicon-->
+      <!-- Favicon logo menor-->
       <link rel="icon" type="image/x-icon" href="{% static 'logos/logo1.ico'%}" />
       <title>{% block title %}Pagina de apresentação{% endblock  %}</title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Poppins:300,400,500,600,700|PT+Serif:400,400i&display=swap" rel="stylesheet" type="text/css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <!--CSS begin-->
       <link rel="stylesheet" href="{% static 'css/style.css' type="text/css" %}">
       <link rel="stylesheet" href="{% static 'css/styles_theme.css' type="text/css" %}">
       <link rel="stylesheet" href="{% static 'css/custom.css' type="text/css" %}">
@@ -23,9 +24,9 @@
       <link rel="stylesheet" href="{% static 'css/font-icons.css' type="text/css" %}">
       <link rel="stylesheet" href="{% static 'css/animate.css' type="text/css" %}">
       <link rel="stylesheet" href="{% static 'css/magnific-popup.css' type="text/css" %}">
-
+      <!--CSS End-->
    </head>
-   <!--head end-->
+   <!--head End-->
    <!--cabeçalho da pagina que irá ser mostrado nas outras paginas-->
    <header>
       <div class="px-1 py-2 bg-dark text-white">
@@ -118,17 +119,15 @@
          </div>
       </div>
    </header>
-   <!--end-->
-   <!--body begin-->
+   <!--cabeçalho da pagina... End-->
+   <!--corpo da pagina Begin-->
    <body >
       <section >
          {%block content%}
          {% endblock %}
       </section>
-
-      
    </body>
-   <!--body end-->
+   <!--corpo da pagina End-->
 
    <!-- Bootstrap core JS-->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

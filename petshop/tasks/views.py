@@ -13,17 +13,25 @@ from django.core.paginator import Paginator
 from django.http import HttpResponse
 from tasks.resources import TaskResources
 
-#paginas que usuario acessa sem estar logado logado begin
+#================paginas que usuario acessa sem estar logado logado begin=======================
+
+#Pagina de apresentação 
 def Pagina(request):
     data = Product.objects.filter(is_featured=True).order_by('-id')
     return render(request, 'tasks/pagina_principal.html', {'data': data})
 
-
+#pagina sobre nos
 def Sobre(request):
     return render(request, 'about/sobre_nos.html')
 
 
-#begin ecommerce
+#barra de pesquisa
+def Pesquisa(request):
+    q = request.GET['q']
+    data = Product.objects.filter(title__icontains=q).order_by('-id')
+    return render(request, 'tasks/search.html', {'data': data})
+
+#===============Ecommerce begin======================
 
 #categoria dos produtos
 def Ecommerce_Categorias(request):
@@ -97,13 +105,11 @@ def delete_cart_item(request):
 	    request.session['cartdata']), 'total_amt': total_amt})
 	return JsonResponse({'data': t, 'totalitems': len(request.session['cartdata'])})
 
-
-#ecommerce end
-
-#paginas sem usuario estar logado end
+#====================Ecommerce End=================================
+#==================Paginas sem usuario estar logado End===================
 
 
-#paginas com usuario logado begin
+#==================Paginas com usuario logado Begin======================
 @login_required
 def Sucesso(request):
     return render(request, 'tasks/sucesso.html')
@@ -142,29 +148,25 @@ def Usuario(request):
     tasks = paginator.get_page(page)
     return render(request, 'tasks/tela_usuario.html', {'tasks': tasks, 'table': table})
 
-#paginas com usuario logado end 
+#==============Paginas com usuario logado End=================== 
     
 
 
 
-
+#========Funções da api REST Begin=============
 class ListAndCreate(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TodoSerializers
-
 
 class DetailAndDelete(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
     serializer_class = TodoSerializers
 
-#barra de pesquisa
-def Pesquisa(request):
-    q=request.GET['q']
-    data = Product.objects.filter(title__icontains=q).order_by('-id')
-    return render(request, 'tasks/search.html', {'data': data})
+#========Funções da api REST End=============
 
 
 
+#===========Função da pagina do admin Begin==========
 #importação e exportação de arquivos 
 def export(request):
     tasks_resource = TaskResources()
@@ -172,3 +174,4 @@ def export(request):
     response = HttpResponse(dataset.xls, content_type='application/vnd.ms-excel')
     response['Content-Disposition'] = 'attachment; filename="persons.xls"'
     return response
+#===========Função da pagina do admin END==========
