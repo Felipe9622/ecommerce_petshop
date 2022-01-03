@@ -1,7 +1,6 @@
 amqp==5.0.6
 anyascii==0.2.0
 appdirs==1.4.4
-apturl==0.5.2
 argon2-cffi==21.3.0
 argon2-cffi-bindings==21.2.0
 arrow==1.2.1
