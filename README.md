@@ -15,7 +15,7 @@
 
 
 ### link do projeto:
-http://felipe96.pythonanywhere.com/ 
+
 
 
 ### 🛠 Linguagens Usadas
