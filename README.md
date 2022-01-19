@@ -11,7 +11,7 @@
 
 - [x] Cadastro de novo usuário para acesso ao admin
 - [x] Cadastro de cliente para agendamento e compra de produtos
-- [x] Cadastro de produtos(cateria,preço,peso) 
+- [x] Cadastro de produtos(categoria,preço,peso) 
 
 
 ### link do projeto:
